@@ -1,0 +1,72 @@
+* Gate D1 Simulation: Balanced Mic Preamp and 60Hz 2nd-order Sallen-Key HPF
+* Operating from single +15V DC supply with Vbias = +7.5V
+
+* --- Power Supply & Bias ---
+VCC 15V_RAIL 0 DC 15.0
+VBIAS VBIAS_NODE 0 DC 7.5
+
+* --- Input Sources ---
+* Differential mic source: 5mV peak (3.54 mVrms) at 1kHz
+* Pin 2 (HOT) and Pin 3 (COLD)
+Vin_diff IN_HOT_RAW 0 AC 0.5 0 SIN(0 0.0025 1k)
+Vin_cm   IN_COLD_RAW 0 AC -0.5 0 SIN(0 -0.0025 1k)
+
+* Input RF filter and AC coupling
+C_in1 IN_HOT_RAW IN_HOT 10u
+C_in2 IN_COLD_RAW IN_COLD 10u
+R_b1 IN_HOT VBIAS_NODE 2.2k
+R_b2 IN_COLD VBIAS_NODE 2.2k
+
+* --- Stage 1: Differential Preamp (NE5532 macromodel representation) ---
+* Differential amplifier topology with variable gain
+* R_in = 10k, R_fb = 100k -> +20 dB base gain (adjustable to +45 dB)
+R1 IN_COLD PRE_INV 10k
+R2 IN_HOT PRE_NONINV 10k
+R3 PRE_NONINV VBIAS_NODE 100k
+R4 PRE_INV PRE_OUT 100k
+
+* Ideal Op-Amp Model for NE5532 (GBW = 10MHz, Aol = 100dB, Vrail limits 1.5V from rails)
+E_OP1 PRE_OUT_INT 0 PRE_NONINV PRE_INV 100k
+R_out1 PRE_OUT_INT PRE_OUT 50
+C_comp1 PRE_NONINV PRE_INV 1.59p
+
+* AC coupling between Preamp and HPF
+C_inter PRE_OUT HPF_IN 10u
+R_inter HPF_IN VBIAS_NODE 100k
+
+* --- Stage 2: Sallen-Key 2nd-order Butterworth HPF (fc = 60 Hz) ---
+* C1 = C2 = 68nF, R1 = 27k, R2 = 56k, unity gain buffer
+C_hpf1 HPF_IN HPF_NODE1 68n
+C_hpf2 HPF_NODE1 HPF_NONINV 68n
+R_hpf1 HPF_NODE1 HPF_OUT 27k
+R_hpf2 HPF_NONINV VBIAS_NODE 56k
+
+E_OP2 HPF_OUT_INT 0 HPF_NONINV HPF_OUT 100k
+R_out2 HPF_OUT_INT HPF_OUT 50
+
+* Output AC coupling to 10k load (power amp input)
+C_out HPF_OUT OUT_AC 10u
+R_load OUT_AC 0 10k
+
+.control
+  * AC Analysis: 10 Hz to 100 kHz
+  ac dec 50 10 100k
+  meas ac gain_1k find vdb(OUT_AC) at=1k
+  meas ac gain_60hz find vdb(OUT_AC) at=60
+  meas ac gain_25hz find vdb(OUT_AC) at=25
+  meas ac gain_20hz find vdb(OUT_AC) at=20
+  
+  * Calculate roll-off relative to 1kHz
+  let atten_60hz = gain_60hz - gain_1k
+  let atten_25hz = gain_25hz - gain_1k
+  let atten_20hz = gain_20hz - gain_1k
+  print gain_1k gain_60hz gain_25hz gain_20hz
+  print atten_60hz atten_25hz atten_20hz
+
+  * Transient Analysis: 1kHz signal for 5ms
+  tran 10u 5m
+  meas tran vout_pk max v(OUT_AC) from=2m to=5m
+  print vout_pk
+.endc
+
+.end

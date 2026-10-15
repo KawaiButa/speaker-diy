@@ -1,0 +1,254 @@
+ERC report (2026-10-14T23:27:27, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[lib_symbol_mismatch]: Symbol 'PWR_FLAG' doesn't match copy in library 'power'
+    ; warning
+    @(35.56 mm, 177.80 mm): Symbol #FLG1 [PWR_FLAG]
+[lib_symbol_issues]: Symbol 'XLR3_Female' not found in symbol library 'Connector_Audio'
+    ; warning
+    @(40.64 mm, 50.80 mm): Symbol J1 [XLR3_Female]
+[lib_symbol_issues]: Symbol 'XLR3_Female' not found in symbol library 'Connector_Audio'
+    ; warning
+    @(40.64 mm, 109.22 mm): Symbol J2 [XLR3_Female]
+[lib_symbol_mismatch]: Symbol 'Conn_01x02_Pin' doesn't match copy in library 'Connector'
+    ; warning
+    @(40.64 mm, 171.45 mm): Symbol J3 [Conn_01x02_Pin]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(50.80 mm, 40.64 mm): Symbol C1 [C]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(50.80 mm, 60.96 mm): Symbol C2 [C]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(50.80 mm, 99.06 mm): Symbol C10 [C]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(50.80 mm, 119.38 mm): Symbol C11 [C]
+[lib_symbol_mismatch]: Symbol 'Fuse' doesn't match copy in library 'Device'
+    ; warning
+    @(55.88 mm, 165.10 mm): Symbol F1 [Fuse]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(60.96 mm, 40.64 mm): Symbol R1 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(60.96 mm, 60.96 mm): Symbol R2 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(60.96 mm, 99.06 mm): Symbol R12 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(60.96 mm, 119.38 mm): Symbol R13 [R]
+[lib_symbol_mismatch]: Symbol 'D_Zener' doesn't match copy in library 'Device'
+    ; warning
+    @(68.58 mm, 180.34 mm): Symbol D1 [D_Zener]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(76.20 mm, 45.72 mm): Symbol C4 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(76.20 mm, 55.88 mm): Symbol C5 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(76.20 mm, 104.14 mm): Symbol C12 [C]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(76.20 mm, 114.30 mm): Symbol C13 [C]
+[lib_symbol_issues]: Symbol 'P-MOSFET' not found in symbol library 'Transistor_FET'
+    ; warning
+    @(76.20 mm, 165.10 mm): Symbol Q1 [P-MOSFET]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(78.74 mm, 180.34 mm): Symbol R18 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(88.90 mm, 45.72 mm): Symbol R3 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(88.90 mm, 55.88 mm): Symbol R5 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(91.44 mm, 104.14 mm): Symbol R14 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(91.44 mm, 114.30 mm): Symbol R15 [R]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(93.98 mm, 180.34 mm): Symbol C17 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'PWR_FLAG' doesn't match copy in library 'power'
+    ; warning
+    @(99.06 mm, 160.02 mm): Symbol #FLG2 [PWR_FLAG]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(104.14 mm, 35.56 mm): Symbol R4 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(104.14 mm, 66.04 mm): Symbol R6 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(109.22 mm, 93.98 mm): Symbol R16 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(109.22 mm, 124.46 mm): Symbol R17 [R]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(109.22 mm, 180.34 mm): Symbol C18 [C]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(119.38 mm, 50.80 mm): Symbol U1 [NE5532]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(124.46 mm, 109.22 mm): Symbol U2 [NE5532]
+[lib_symbol_mismatch]: Symbol 'D' doesn't match copy in library 'Device'
+    ; warning
+    @(129.54 mm, 149.86 mm): Symbol D2 [D]
+[lib_symbol_issues]: Symbol 'LM317_TO220' not found in symbol library 'Regulator_Linear'
+    ; warning
+    @(129.54 mm, 165.10 mm): Symbol U4 [LM317_TO220]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(139.70 mm, 50.80 mm): Symbol C6 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(139.70 mm, 180.34 mm): Symbol R19 [R]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(144.78 mm, 109.22 mm): Symbol C15 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'D' doesn't match copy in library 'Device'
+    ; warning
+    @(144.78 mm, 172.72 mm): Symbol D3 [D]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(149.86 mm, 66.04 mm): Symbol R7 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(149.86 mm, 180.34 mm): Symbol R20 [R]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(154.94 mm, 30.48 mm): Symbol U1 [NE5532]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(154.94 mm, 88.90 mm): Symbol U2 [NE5532]
+[lib_symbol_mismatch]: Symbol 'R_Potentiometer' doesn't match copy in library 'Device'
+    ; warning
+    @(160.02 mm, 109.22 mm): Symbol RV3 [R_Potentiometer]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(160.02 mm, 180.34 mm): Symbol C19 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(165.10 mm, 66.04 mm): Symbol R8 [R]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(167.64 mm, 30.48 mm): Symbol C3 [C]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(167.64 mm, 88.90 mm): Symbol C16 [C]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(175.26 mm, 66.04 mm): Symbol R10 [R]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(175.26 mm, 180.34 mm): Symbol C20 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(185.42 mm, 50.80 mm): Symbol U1 [NE5532]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(185.42 mm, 180.34 mm): Symbol C21 [C]
+[lib_symbol_mismatch]: Symbol 'R_Potentiometer' doesn't match copy in library 'Device'
+    ; warning
+    @(190.50 mm, 66.04 mm): Symbol RV1 [R_Potentiometer]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(205.74 mm, 50.80 mm): Symbol C7 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(205.74 mm, 165.10 mm): Symbol R21 [R]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(205.74 mm, 185.42 mm): Symbol R22 [R]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(215.90 mm, 185.42 mm): Symbol C22 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'R_Potentiometer' doesn't match copy in library 'Device'
+    ; warning
+    @(220.98 mm, 50.80 mm): Symbol RV2 [R_Potentiometer]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(236.22 mm, 175.26 mm): Symbol U3 [NE5532]
+[lib_symbol_mismatch]: Symbol 'SW_DPDT_x2' doesn't match copy in library 'Switch'
+    ; warning
+    @(248.92 mm, 78.74 mm): Symbol SW1 [SW_DPDT_x2]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(254.00 mm, 185.42 mm): Symbol C23 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(264.16 mm, 154.94 mm): Symbol U3 [NE5532]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(264.16 mm, 185.42 mm): Symbol C25 [C]
+[lib_symbol_mismatch]: Symbol 'TestPoint' doesn't match copy in library 'Connector'
+    ; warning
+    @(269.24 mm, 81.28 mm): Symbol TP1 [TestPoint]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(276.86 mm, 50.80 mm): Symbol C8 [C]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(276.86 mm, 154.94 mm): Symbol C26 [C]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(287.02 mm, 35.56 mm): Symbol R9 [R]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(294.64 mm, 50.80 mm): Symbol C9 [C]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(294.64 mm, 66.04 mm): Symbol R11 [R]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(294.64 mm, 175.26 mm): Symbol U3 [NE5532]
+[lib_symbol_mismatch]: Symbol 'NE5532' doesn't match copy in library 'Amplifier_Operational'
+    ; warning
+    @(309.88 mm, 50.80 mm): Symbol U2 [NE5532]
+[lib_symbol_mismatch]: Symbol 'C_Polarized' doesn't match copy in library 'Device'
+    ; warning
+    @(325.12 mm, 50.80 mm): Symbol C14 [C_Polarized]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(335.28 mm, 66.04 mm): Symbol R24 [R]
+[lib_symbol_mismatch]: Symbol 'Conn_01x02_Pin' doesn't match copy in library 'Connector'
+    ; warning
+    @(355.60 mm, 52.07 mm): Symbol J4 [Conn_01x02_Pin]
+[lib_symbol_mismatch]: Symbol 'Conn_01x03_Pin' doesn't match copy in library 'Connector'
+    ; warning
+    @(355.60 mm, 78.74 mm): Symbol J5 [Conn_01x03_Pin]
+[lib_symbol_mismatch]: Symbol 'Conn_01x02_Pin' doesn't match copy in library 'Connector'
+    ; warning
+    @(355.60 mm, 120.65 mm): Symbol J6 [Conn_01x02_Pin]
+[lib_symbol_mismatch]: Symbol 'SW_SPST' doesn't match copy in library 'Switch'
+    ; warning
+    @(381.00 mm, 93.98 mm): Symbol SW2 [SW_SPST]
+[lib_symbol_mismatch]: Symbol 'L' doesn't match copy in library 'Device'
+    ; warning
+    @(381.00 mm, 109.22 mm): Symbol L1 [L]
+[lib_symbol_mismatch]: Symbol 'C' doesn't match copy in library 'Device'
+    ; warning
+    @(381.00 mm, 124.46 mm): Symbol C24 [C]
+[lib_symbol_mismatch]: Symbol 'R' doesn't match copy in library 'Device'
+    ; warning
+    @(381.00 mm, 139.70 mm): Symbol R23 [R]
+[lib_symbol_mismatch]: Symbol 'Conn_01x02_Pin' doesn't match copy in library 'Connector'
+    ; warning
+    @(416.56 mm, 120.65 mm): Symbol J7 [Conn_01x02_Pin]
+
+ ** ERC messages: 81  Errors 0  Warnings 81
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - Assigned footprint doesn't match footprint filters

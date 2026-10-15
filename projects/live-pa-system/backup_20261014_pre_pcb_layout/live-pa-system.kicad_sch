@@ -1,0 +1,3139 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "5607840e-f6a1-45c7-9d86-b07a841aa1a0")
+	(paper "A3")
+	(title_block
+		(title "DIY Active Stage Monitor - Analog Front-End & Filter")
+		(date "2026-10-14")
+		(rev "2.1")
+		(company "DIY Audio Labs")
+		(comment 1 "Gate D Final Schematic: Visaton BG 20 + TPA3255 PBTL")
+		(comment 2 "Common 60Hz 2nd HPF protecting BOTH Mic & Line modes; 0.1% CMRR input networks")
+		(comment 3 "DC 36V in with P-MOSFET reverse prot, LM317HVT +15V reg, Buffered Vbias & RLC contour")
+	)
+	(lib_symbols
+		(symbol "Device:C"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "C" (at 2.54 1.27 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "C" (at 2.54 -1.27 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Device:C_Polarized"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "C" (at 2.54 1.27 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "C_Polarized" (at 2.54 -1.27 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Device:R"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "R" (at 2.032 0 90) (effects (font (size 1.27 1.27))))
+			(property "Value" "R" (at -2.032 0 90) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Device:R_Potentiometer"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 2.54 0 180) (length 2.54)
+				(name "2" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "3" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "RV" (at 2.54 2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "R_Potentiometer" (at 2.54 -2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Device:L"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "L" (at 2.032 0 90) (effects (font (size 1.27 1.27))))
+			(property "Value" "L" (at -2.032 0 90) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Device:D_Zener"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "K" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "A" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "D" (at 2.54 0 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "D_Zener" (at 2.54 -2.0 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Device:D"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "K" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "A" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "D" (at 2.54 0 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "D" (at 2.54 -2.0 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Device:Fuse"
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "F" (at 2.032 0 90) (effects (font (size 1.27 1.27))))
+			(property "Value" "Fuse" (at -2.032 0 90) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Switch:SW_SPST"
+			(pin passive line (at -5.08 0 0) (length 2.54)
+				(name "1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 5.08 0 180) (length 2.54)
+				(name "2" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "SW" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "SW_SPST" (at 0 -2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Switch:SW_DPDT_x2"
+			(pin passive line (at -5.08 2.54 0) (length 2.54)
+				(name "A" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 2.54 270) (length 2.54)
+				(name "B" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 5.08 2.54 180) (length 2.54)
+				(name "C" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at -5.08 -2.54 0) (length 2.54)
+				(name "D" (effects (font (size 1.27 1.27))))
+				(number "4" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 0 -2.54 90) (length 2.54)
+				(name "E" (effects (font (size 1.27 1.27))))
+				(number "5" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 5.08 -2.54 180) (length 2.54)
+				(name "F" (effects (font (size 1.27 1.27))))
+				(number "6" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "SW" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "SW_DPDT" (at 0 -5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Connector:Conn_01x02_Pin"
+			(pin passive line (at -2.54 1.27 0) (length 2.54)
+				(name "Pin_1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at -2.54 -1.27 0) (length 2.54)
+				(name "Pin_2" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "J" (at 0 3.81 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "Conn_01x02" (at 0 -3.81 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Connector:Conn_01x03_Pin"
+			(pin passive line (at -2.54 2.54 0) (length 2.54)
+				(name "Pin_1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at -2.54 0 0) (length 2.54)
+				(name "Pin_2" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at -2.54 -2.54 0) (length 2.54)
+				(name "Pin_3" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "J" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "Conn_01x03" (at 0 -5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Connector_Audio:XLR3_Female"
+			(pin passive line (at -5.08 2.54 0) (length 2.54)
+				(name "1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at -5.08 0 0) (length 2.54)
+				(name "2" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at -5.08 -2.54 0) (length 2.54)
+				(name "3" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "J" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "XLR3_Female" (at 0 -5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Amplifier_Operational:NE5532"
+			(property "Reference" "U" (at 2.54 5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "NE5532" (at 2.54 -5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+			(symbol "NE5532_1_1"
+				(pin output line (at 5.08 0 180) (length 2.54)
+					(name "~" (effects (font (size 1.27 1.27))))
+					(number "1" (effects (font (size 1.27 1.27))))
+				)
+				(pin input line (at -5.08 -2.54 0) (length 2.54)
+					(name "-" (effects (font (size 1.27 1.27))))
+					(number "2" (effects (font (size 1.27 1.27))))
+				)
+				(pin input line (at -5.08 2.54 0) (length 2.54)
+					(name "+" (effects (font (size 1.27 1.27))))
+					(number "3" (effects (font (size 1.27 1.27))))
+				)
+			)
+			(symbol "NE5532_2_1"
+				(pin output line (at 5.08 0 180) (length 2.54)
+					(name "~" (effects (font (size 1.27 1.27))))
+					(number "7" (effects (font (size 1.27 1.27))))
+				)
+				(pin input line (at -5.08 -2.54 0) (length 2.54)
+					(name "-" (effects (font (size 1.27 1.27))))
+					(number "6" (effects (font (size 1.27 1.27))))
+				)
+				(pin input line (at -5.08 2.54 0) (length 2.54)
+					(name "+" (effects (font (size 1.27 1.27))))
+					(number "5" (effects (font (size 1.27 1.27))))
+				)
+			)
+			(symbol "NE5532_3_1"
+				(pin power_in line (at 0 5.08 270) (length 2.54)
+					(name "V+" (effects (font (size 1.27 1.27))))
+					(number "8" (effects (font (size 1.27 1.27))))
+				)
+				(pin power_in line (at 0 -5.08 90) (length 2.54)
+					(name "V-" (effects (font (size 1.27 1.27))))
+					(number "4" (effects (font (size 1.27 1.27))))
+				)
+			)
+		)
+		(symbol "Regulator_Linear:LM317_TO220"
+			(pin input line (at -5.08 2.54 0) (length 2.54)
+				(name "VI" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
+			)
+			(pin input line (at 0 -5.08 90) (length 2.54)
+				(name "ADJ" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin power_out line (at 5.08 2.54 180) (length 2.54)
+				(name "VO" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "U" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "LM317HVT" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Transistor_FET:P-MOSFET"
+			(pin input line (at -5.08 0 0) (length 2.54)
+				(name "G" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 2.54 5.08 270) (length 2.54)
+				(name "D" (effects (font (size 1.27 1.27))))
+				(number "2" (effects (font (size 1.27 1.27))))
+			)
+			(pin passive line (at 2.54 -5.08 90) (length 2.54)
+				(name "S" (effects (font (size 1.27 1.27))))
+				(number "3" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "Q" (at 5.08 2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "IRF4905" (at 5.08 -2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "power:PWR_FLAG"
+			(pin power_out line (at 0 0 90) (length 0)
+				(name "~" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "#FLG" (at 0 1.905 0) (effects (font (size 1.27 1.27)) hide))
+			(property "Value" "PWR_FLAG" (at 0 3.81 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+		(symbol "Connector:TestPoint"
+			(pin passive line (at 0 0 0) (length 0)
+				(name "1" (effects (font (size 1.27 1.27))))
+				(number "1" (effects (font (size 1.27 1.27))))
+			)
+			(property "Reference" "TP" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Value" "TestPoint" (at 0 -2.54 0) (effects (font (size 1.27 1.27))))
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+		)
+	)
+	(symbol
+		(lib_id "Connector_Audio:XLR3_Female")
+		(at 40.64 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2b99368a-efab-4a6c-a640-1587fd07cd74")
+		(property "Reference" "J1" (at 43.18 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "MIC_XLR_IN" (at 43.18 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Connector_Audio:Jack_XLR_Neutrik_NC3FAH_Horizontal" (at 40.64 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 50.80 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "19e7af3a-be7e-49de-b49b-b6f6a02fb62f")
+		(property "Reference" "C1" (at 53.34 38.10 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "47pF" (at 53.34 40.64 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" (at 50.80 40.64 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 50.80 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cd84f811-0c46-41b1-a9af-11921c9dda4b")
+		(property "Reference" "C2" (at 53.34 58.42 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "47pF" (at 53.34 60.96 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" (at 50.80 60.96 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 60.96 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "76b45cfd-e1a0-4aee-994f-7db93233a5a8")
+		(property "Reference" "R1" (at 63.50 38.10 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100k" (at 63.50 40.64 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 60.96 40.64 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 60.96 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "02ab22b1-9f90-453b-8fba-af76334cf9e2")
+		(property "Reference" "R2" (at 63.50 58.42 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100k" (at 63.50 60.96 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 60.96 60.96 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 76.20 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e6e0a900-0b2d-4469-b2a6-9567af93460e")
+		(property "Reference" "C4" (at 78.74 43.18 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/50V_BP" (at 78.74 45.72 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" (at 76.20 45.72 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 76.20 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f67268b9-14d9-494c-ae02-1e0892ec9730")
+		(property "Reference" "C5" (at 78.74 53.34 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/50V_BP" (at 78.74 55.88 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" (at 76.20 55.88 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 88.90 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3a91b9e7-428d-4a97-8f93-dc9383761591")
+		(property "Reference" "R3" (at 91.44 43.18 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "2.2k_0.1%" (at 91.44 45.72 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 88.90 45.72 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 88.90 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0772b206-a37b-4c2b-9373-bb67d81ce745")
+		(property "Reference" "R5" (at 91.44 53.34 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "2.2k_0.1%" (at 91.44 55.88 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 88.90 55.88 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 104.14 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d151e8fc-570b-40c9-a939-651d4eb91868")
+		(property "Reference" "R4" (at 106.68 33.02 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "4.7k_0.1%" (at 106.68 35.56 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 104.14 35.56 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 104.14 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0099b0d4-4a21-434c-8dc8-ae8a0c3737e6")
+		(property "Reference" "R6" (at 106.68 63.50 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "4.7k_0.1%" (at 106.68 66.04 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 104.14 66.04 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 119.38 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2351545b-db99-48e4-93b9-d4921571f17a")
+		(property "Reference" "U1" (at 121.92 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 121.92 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 119.38 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 139.70 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "58416fbf-cd9c-481b-b59c-d05b257b7b43")
+		(property "Reference" "C6" (at 142.24 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/25V" (at 142.24 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" (at 139.70 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 149.86 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b8aa3976-798f-43ed-a8f9-9071b6d814cf")
+		(property "Reference" "R7" (at 152.40 63.50 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "47k_1%" (at 152.40 66.04 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 149.86 66.04 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 165.10 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5275d35c-4166-47bd-8ab9-ca867f75b312")
+		(property "Reference" "R8" (at 167.64 63.50 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "330R_1%" (at 167.64 66.04 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 165.10 66.04 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 175.26 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6f408edc-ff28-4656-8712-1bb23f9913a7")
+		(property "Reference" "R10" (at 177.80 63.50 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "1.2k_1%" (at 177.80 66.04 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 175.26 66.04 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R_Potentiometer")
+		(at 190.50 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5694eab1-65ce-4a08-90d4-fc1ae4891361")
+		(property "Reference" "RV1" (at 193.04 63.50 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "50k_RevLog_MIC_GAIN" (at 193.04 66.04 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical" (at 190.50 66.04 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 185.42 50.80 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ecf08ac3-3999-47fc-9226-838e31007a32")
+		(property "Reference" "U1" (at 187.96 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 187.96 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 185.42 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 154.94 30.48 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fb78ec81-c501-42da-a972-833687247cbc")
+		(property "Reference" "U1" (at 157.48 27.94 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 157.48 30.48 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 154.94 30.48 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 167.64 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "44407547-221c-473a-ac04-08cbb7d8d434")
+		(property "Reference" "C3" (at 170.18 27.94 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100nF/50V" (at 170.18 30.48 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 167.64 30.48 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 205.74 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a5607ba3-c356-40bd-921c-65d7e4794649")
+		(property "Reference" "C7" (at 208.28 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/25V" (at 208.28 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" (at 205.74 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R_Potentiometer")
+		(at 220.98 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "98c637bc-b6b4-4ebc-a4a8-289f2f5221c5")
+		(property "Reference" "RV2" (at 223.52 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10k_Log_MIC_VOL" (at 223.52 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical" (at 220.98 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Connector_Audio:XLR3_Female")
+		(at 40.64 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "527d8e33-db24-4e7f-ba3f-283f4eb6bf8c")
+		(property "Reference" "J2" (at 43.18 106.68 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "COMBO_LINE_IN" (at 43.18 109.22 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Connector_Audio:Jack_XLR-6.35mm_Neutrik_NCJ6FI-H_Horizontal" (at 40.64 109.22 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 50.80 99.06 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "22c7e4c1-c9cc-48c9-abf1-b957dd2b06b5")
+		(property "Reference" "C10" (at 53.34 96.52 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "47pF" (at 53.34 99.06 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" (at 50.80 99.06 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 50.80 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f86a8ce0-983c-4043-b870-f619c785edf9")
+		(property "Reference" "C11" (at 53.34 116.84 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "47pF" (at 53.34 119.38 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" (at 50.80 119.38 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 60.96 99.06 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0d59c4b6-d540-493e-9547-7923af5a9e9d")
+		(property "Reference" "R12" (at 63.50 96.52 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100k" (at 63.50 99.06 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 60.96 99.06 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 60.96 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "35ddd444-9312-436e-b4cc-3179ed79c9a2")
+		(property "Reference" "R13" (at 63.50 116.84 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100k" (at 63.50 119.38 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 60.96 119.38 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 76.20 104.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "95746bb9-0bcf-431c-93f8-b5e4a36b68e3")
+		(property "Reference" "C12" (at 78.74 101.60 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "1uF_Film" (at 78.74 104.14 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 76.20 104.14 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 76.20 114.30 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a79d3d6b-a296-4817-a48c-c8dfc8dac734")
+		(property "Reference" "C13" (at 78.74 111.76 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "1uF_Film" (at 78.74 114.30 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 76.20 114.30 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 91.44 104.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7506adb1-3688-4112-87da-166a477d1bb9")
+		(property "Reference" "R14" (at 93.98 101.60 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "30k_0.1%" (at 93.98 104.14 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 91.44 104.14 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 91.44 114.30 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a097e71e-c773-4c8c-82e1-ee600e965235")
+		(property "Reference" "R15" (at 93.98 111.76 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "30k_0.1%" (at 93.98 114.30 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 91.44 114.30 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 109.22 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d8a08803-f63c-4849-8322-49434a79b867")
+		(property "Reference" "R16" (at 111.76 91.44 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10k_0.1%" (at 111.76 93.98 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 109.22 93.98 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 109.22 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6912f091-0e20-4d22-b84e-d57ddd162424")
+		(property "Reference" "R17" (at 111.76 121.92 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10k_0.1%" (at 111.76 124.46 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 109.22 124.46 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 124.46 109.22 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "18043fe2-b901-4aaa-b766-9220036e7493")
+		(property "Reference" "U2" (at 127.00 106.68 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 127.00 109.22 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 124.46 109.22 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 154.94 88.90 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "235f546c-f0a0-48f4-9869-5afc98864113")
+		(property "Reference" "U2" (at 157.48 86.36 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 157.48 88.90 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 154.94 88.90 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 167.64 88.90 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1f9ec7e7-a298-47a0-b6df-dacf184f5a7d")
+		(property "Reference" "C16" (at 170.18 86.36 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100nF/50V" (at 170.18 88.90 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 167.64 88.90 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 144.78 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f012618f-134f-4970-ac6a-5df1c8b938fa")
+		(property "Reference" "C15" (at 147.32 106.68 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/25V" (at 147.32 109.22 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" (at 144.78 109.22 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R_Potentiometer")
+		(at 160.02 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6326c00d-f935-48b0-b66e-10be1053fff3")
+		(property "Reference" "RV3" (at 162.56 106.68 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10k_Log_LINE_VOL" (at 162.56 109.22 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3386P_Vertical" (at 160.02 109.22 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Switch:SW_DPDT_x2")
+		(at 248.92 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ced8a4ab-757f-4cc6-aeac-c480a379f531")
+		(property "Reference" "SW1" (at 251.46 76.20 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "DPDT_MODE_SELECT" (at 251.46 78.74 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Button_Switch_THT:SW_MEC_5G" (at 248.92 78.74 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 269.24 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0f62b250-72f6-41a6-be34-1792209c8471")
+		(property "Reference" "TP1" (at 271.78 78.74 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "TP_MODE_STATUS" (at 271.78 81.28 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm" (at 269.24 81.28 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 276.86 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b7781e13-471c-4f5a-b90c-e9b1fe93561d")
+		(property "Reference" "C8" (at 279.40 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "68nF_Film" (at 279.40 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 276.86 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 287.02 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b821a3dd-354f-4e6f-aae8-afaa37dc36c1")
+		(property "Reference" "R9" (at 289.56 33.02 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "27k_1%" (at 289.56 35.56 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 287.02 35.56 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 294.64 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "be86229d-d64f-437d-9a18-4ca313215f0c")
+		(property "Reference" "C9" (at 297.18 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "68nF_Film" (at 297.18 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W3.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 294.64 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 294.64 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "104b8422-b1ed-4e9e-a505-b1e6fe87ab28")
+		(property "Reference" "R11" (at 297.18 63.50 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "56k_1%" (at 297.18 66.04 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 294.64 66.04 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 309.88 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e66cd158-8c62-4111-bc6f-ccc9cf6c602b")
+		(property "Reference" "U2" (at 312.42 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 312.42 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 309.88 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 325.12 50.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b9cdb88d-2812-4d67-988b-c0caa28260f0")
+		(property "Reference" "C14" (at 327.66 48.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/25V" (at 327.66 50.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" (at 325.12 50.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 335.28 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d0d4bc45-2996-423c-92e0-6d3b67ff2905")
+		(property "Reference" "R24" (at 337.82 63.50 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100k" (at 337.82 66.04 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 335.28 66.04 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 40.64 171.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bad75a90-8727-479d-81b7-3d727ff10705")
+		(property "Reference" "J3" (at 43.18 168.91 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "DC_36V_IN" (at 43.18 171.45 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Connector_BarrelJack:BarrelJack_Horizontal" (at 40.64 171.45 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 55.88 165.10 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "75c01734-0a95-4452-ab88-6e5f64ecb6e7")
+		(property "Reference" "F1" (at 58.42 162.56 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "T3.15A_250V_5x20mm" (at 58.42 165.10 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" (at 55.88 165.10 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Transistor_FET:P-MOSFET")
+		(at 76.20 165.10 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "182eafa8-7219-462c-b8ce-bcef8a3e7377")
+		(property "Reference" "Q1" (at 78.74 162.56 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "IRF4905" (at 78.74 165.10 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical" (at 76.20 165.10 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:D_Zener")
+		(at 68.58 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c8f60f32-0f35-424f-ab0d-b0e63d9d60f4")
+		(property "Reference" "D1" (at 71.12 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "BZX79C12_12V" (at 71.12 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" (at 68.58 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 78.74 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ebbf7ef6-5f55-4a83-b5aa-b6e76751ac02")
+		(property "Reference" "R18" (at 81.28 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100k" (at 81.28 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 78.74 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 93.98 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3d299fb9-3ea5-434c-b035-44bbd80f87ed")
+		(property "Reference" "C17" (at 96.52 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "470uF/50V_LowESR" (at 96.52 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" (at 93.98 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 109.22 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6b4d783d-ea2d-4971-8dc3-274a5a7e8264")
+		(property "Reference" "C18" (at 111.76 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100nF/50V" (at 111.76 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 109.22 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Regulator_Linear:LM317_TO220")
+		(at 129.54 165.10 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a8ab5e1a-79a6-44b0-a21f-e2daf21bc0cf")
+		(property "Reference" "U4" (at 132.08 162.56 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "LM317HVT" (at 132.08 165.10 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical" (at 129.54 165.10 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 139.70 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "73546295-74d6-440a-9a67-65223a1c14bf")
+		(property "Reference" "R19" (at 142.24 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "240R_1%" (at 142.24 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 139.70 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 149.86 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "986c20a9-8fe6-401f-a808-13198facd247")
+		(property "Reference" "R20" (at 152.40 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "2.64k_1%" (at 152.40 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 149.86 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 160.02 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "14c0f8ad-b6e1-4645-811c-f11d59da11e2")
+		(property "Reference" "C19" (at 162.56 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/25V" (at 162.56 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" (at 160.02 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:D")
+		(at 129.54 149.86 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "88ee70e6-f667-4ba6-ba2e-7a05692dac18")
+		(property "Reference" "D2" (at 132.08 147.32 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "1N4007" (at 132.08 149.86 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" (at 129.54 149.86 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:D")
+		(at 144.78 172.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b11929ea-0ecb-4eca-bf76-1abcb6c6dcdc")
+		(property "Reference" "D3" (at 147.32 170.18 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "1N4007" (at 147.32 172.72 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" (at 144.78 172.72 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 175.26 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "60c1fb41-8977-4605-b781-45bef442ccb6")
+		(property "Reference" "C20" (at 177.80 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100uF/25V" (at 177.80 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" (at 175.26 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 185.42 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d33d3932-920b-4b2a-900e-b70b5c8ab468")
+		(property "Reference" "C21" (at 187.96 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100nF/50V" (at 187.96 180.34 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 185.42 180.34 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 205.74 165.10 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0fa60e20-394e-47bf-a99b-e683ecfca4d1")
+		(property "Reference" "R21" (at 208.28 162.56 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10k_1%" (at 208.28 165.10 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 205.74 165.10 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 205.74 185.42 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "56112198-4958-4f6b-b026-b0984d300172")
+		(property "Reference" "R22" (at 208.28 182.88 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10k_1%" (at 208.28 185.42 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" (at 205.74 185.42 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 215.90 185.42 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "071c6fec-95be-47b4-83d0-55668796d46d")
+		(property "Reference" "C22" (at 218.44 182.88 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "10uF/25V" (at 218.44 185.42 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" (at 215.90 185.42 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 236.22 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d3af2f89-959f-447b-adc3-bc7a3def9045")
+		(property "Reference" "U3" (at 238.76 172.72 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 238.76 175.26 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 236.22 175.26 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C_Polarized")
+		(at 254.00 185.42 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "de05cf7e-fd60-4455-b8a0-301e8b633068")
+		(property "Reference" "C23" (at 256.54 182.88 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "47uF/25V" (at 256.54 185.42 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" (at 254.00 185.42 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 264.16 185.42 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e577f771-7beb-4671-842a-f6bf6a2189f3")
+		(property "Reference" "C25" (at 266.70 182.88 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100nF/50V" (at 266.70 185.42 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 264.16 185.42 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 294.64 175.26 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "bb82b479-44e7-48b0-9dda-d7bcf7277ae6")
+		(property "Reference" "U3" (at 297.18 172.72 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 297.18 175.26 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 294.64 175.26 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:NE5532")
+		(at 264.16 154.94 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f6d67d20-d774-4cd5-a202-3630fb0f332f")
+		(property "Reference" "U3" (at 266.70 152.40 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "NE5532P" (at 266.70 154.94 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm" (at 264.16 154.94 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 276.86 154.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a2a0a262-5317-487b-ba4b-580462b0aee6")
+		(property "Reference" "C26" (at 279.40 152.40 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "100nF/50V" (at 279.40 154.94 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" (at 276.86 154.94 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 355.60 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4ea9b863-db53-4dac-b1f9-6743cb3a88f1")
+		(property "Reference" "J4" (at 358.14 49.53 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "AMP_POWER_36V" (at 358.14 52.07 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal" (at 355.60 52.07 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x03_Pin")
+		(at 355.60 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "53caab7b-3d80-4bb4-bbeb-ef40c942a29b")
+		(property "Reference" "J5" (at 358.14 76.20 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "AMP_AUDIO_IN" (at 358.14 78.74 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" (at 355.60 78.74 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 355.60 120.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5d4e1013-6da6-4292-84fa-8076f5f9e969")
+		(property "Reference" "J6" (at 358.14 118.11 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "AMP_SPEAKER_OUT" (at 358.14 120.65 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal" (at 355.60 120.65 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Switch:SW_SPST")
+		(at 381.00 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b6fc4076-91f9-43ef-8ea0-656ec820de4a")
+		(property "Reference" "SW2" (at 383.54 91.44 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "CONTOUR_BYPASS" (at 383.54 93.98 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Button_Switch_THT:SW_MEC_5G" (at 381.00 93.98 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:L")
+		(at 381.00 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1458751b-6825-46c8-8587-aa5fa97950c6")
+		(property "Reference" "L1" (at 383.54 106.68 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "1.0mH_AirCore_0.35R" (at 383.54 109.22 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Inductor_THT:L_Radial_D25.0mm_P15.00mm" (at 381.00 109.22 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 381.00 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dc70f560-128d-498a-a690-588ea3347612")
+		(property "Reference" "C24" (at 383.54 121.92 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "4.7uF/250V_MKP" (at 383.54 124.46 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Capacitor_THT:C_Rect_L18.0mm_W9.0mm_P15.00mm_FKS3_FKP3" (at 381.00 124.46 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 381.00 139.70 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "74ee02bb-1de8-4621-bdf1-b22fce7f37bd")
+		(property "Reference" "R23" (at 383.54 137.16 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "8.2R_10W_NonInductive" (at 383.54 139.70 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "Resistor_THT:R_Axial_Power_L25.0mm_D9.0mm_P30.00mm_Horizontal" (at 381.00 139.70 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 416.56 120.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6e481a3e-9c14-4a7d-ae75-e5296e36f409")
+		(property "Reference" "J7" (at 419.10 118.11 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "VISATON_BG20_8R" (at 419.10 120.65 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal" (at 416.56 120.65 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 35.56 177.80 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7015fc66-a78d-421a-a029-c6ed8ff8ce78")
+		(property "Reference" "#FLG1" (at 38.10 175.26 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "PWR_FLAG" (at 38.10 177.80 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "" (at 35.56 177.80 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 99.06 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2261cd73-f868-498a-b5ea-8b1881ff4a1e")
+		(property "Reference" "#FLG2" (at 101.60 157.48 0) (effects (font (size 1.27 1.27))))
+		(property "Value" "PWR_FLAG" (at 101.60 160.02 0) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "" (at 99.06 160.02 0) (effects (font (size 1.27 1.27)) hide))
+	)
+	(label "GND_CHASSIS"
+		(at 35.56 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2bc5f8b9-fa47-404c-a7b7-bd89147d7947")
+	)
+	(label "MIC_HOT_RAW"
+		(at 35.56 50.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "23ae1c04-9adb-4125-bc3a-b2883e003c8b")
+	)
+	(label "MIC_COLD_RAW"
+		(at 35.56 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "02573fc5-4510-4b49-94c1-bd76584c31d4")
+	)
+	(label "GND"
+		(at 50.80 38.10 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "010501d0-1a75-4588-86ca-454328f41756")
+	)
+	(label "MIC_HOT_RAW"
+		(at 50.80 43.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0c607430-835a-41d1-a366-bf1229303733")
+	)
+	(label "MIC_COLD_RAW"
+		(at 50.80 58.42 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ae2e2bde-2800-40e1-aa4b-10cfcf3a47a8")
+	)
+	(label "GND"
+		(at 50.80 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7599ae23-22d8-48e3-baa6-6540fd03e102")
+	)
+	(label "GND"
+		(at 60.96 38.10 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5b62e869-2afc-4fed-b648-8b2de8298823")
+	)
+	(label "MIC_HOT_RAW"
+		(at 60.96 43.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b0ddf626-e7bc-4755-921d-d447a206511b")
+	)
+	(label "MIC_COLD_RAW"
+		(at 60.96 58.42 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bcd0060a-c266-4322-b434-fe922e887bc4")
+	)
+	(label "GND"
+		(at 60.96 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "214815e4-aaf0-4ee2-8181-9c13c5b6e122")
+	)
+	(label "MIC_HOT_RAW"
+		(at 76.20 43.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "439e05fe-23b1-4c28-802b-84021089cd9f")
+	)
+	(label "MIC_HOT_AC"
+		(at 76.20 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b7d74bea-fd7e-4f14-8aae-88f901787c8c")
+	)
+	(label "MIC_COLD_AC"
+		(at 76.20 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a711be97-a679-482b-9151-1b9a5720fc93")
+	)
+	(label "MIC_COLD_RAW"
+		(at 76.20 58.42 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "887112c2-b1f7-4628-9c84-37b43885dc5c")
+	)
+	(label "MIC_HOT_AC"
+		(at 88.90 43.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d700be6e-cb65-4800-b4d0-86730a01a77f")
+	)
+	(label "MIC_PRE1_NONINV"
+		(at 88.90 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b374e456-09ef-49e4-aef3-514db4400ec7")
+	)
+	(label "MIC_PRE1_INV"
+		(at 88.90 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "de23ed88-3335-4b95-a7b1-ea9d300d6e2f")
+	)
+	(label "MIC_COLD_AC"
+		(at 88.90 58.42 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a477a6a0-2055-4f0f-a3d9-2aa163590923")
+	)
+	(label "VBIAS_7V5"
+		(at 104.14 33.02 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "83afc751-47bd-4173-82a5-3c4b3357d845")
+	)
+	(label "MIC_PRE1_NONINV"
+		(at 104.14 38.10 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "85af1b34-5adb-45fc-8ce5-0eb940b2203b")
+	)
+	(label "MIC_PRE1_INV"
+		(at 104.14 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "efbc3de9-bb6f-47e3-9a52-6e7dd5515245")
+	)
+	(label "MIC_STG1_OUT"
+		(at 104.14 68.58 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5fbc4ad9-ada0-4aef-8671-a26ec5f967be")
+	)
+	(label "MIC_PRE1_NONINV"
+		(at 114.30 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2e354ff3-06c8-4811-b118-e392cbbd753c")
+	)
+	(label "MIC_PRE1_INV"
+		(at 114.30 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bcb101a4-8bb0-4e78-8fe8-82afb40ce276")
+	)
+	(label "MIC_STG1_OUT"
+		(at 124.46 50.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b2f48ae0-a81b-4bab-945a-181224003154")
+	)
+	(label "MIC_STG1_OUT"
+		(at 139.70 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "97e7dc29-89f7-41ef-8375-af3340610541")
+	)
+	(label "MIC_STG2_IN"
+		(at 139.70 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "43dc1ea3-e993-44e6-9b6b-17af93da1809")
+	)
+	(label "MIC_STG2_IN"
+		(at 149.86 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f6129646-700a-4a67-b828-84e6b48c8181")
+	)
+	(label "VBIAS_7V5"
+		(at 149.86 68.58 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bb342149-94e2-4022-a1c3-d662a614ea54")
+	)
+	(label "MIC_PRE2_INV"
+		(at 165.10 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bcf36d25-38e1-4637-8ca8-c4bcf2d4d826")
+	)
+	(label "VBIAS_7V5"
+		(at 165.10 68.58 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "66a08c08-393b-487b-9ef9-3263bd267ee2")
+	)
+	(label "MIC_PRE2_INV"
+		(at 175.26 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "43dd9aa6-8295-4ea3-8227-b7b09bb51f8a")
+	)
+	(label "MIC_GAIN_POT_CW"
+		(at 175.26 68.58 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "53c5971d-8aee-48aa-8cce-7f4e32852f84")
+	)
+	(label "MIC_GAIN_POT_CW"
+		(at 190.50 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0978128f-613f-4df5-9d89-bf8292620350")
+	)
+	(label "MIC_PRE_OUT"
+		(at 193.04 66.04 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1ad69105-4084-4a11-996b-c04bee20edd2")
+	)
+	(label "MIC_PRE_OUT"
+		(at 190.50 68.58 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "71e497ce-750e-4ab2-803b-1454cd576dc1")
+	)
+	(label "MIC_STG2_IN"
+		(at 180.34 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a30581cb-4533-42b5-8268-4b13faf04c2a")
+	)
+	(label "MIC_PRE2_INV"
+		(at 180.34 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9016d6a2-99ea-4a67-b774-06c8cbf3bb55")
+	)
+	(label "MIC_PRE_OUT"
+		(at 190.50 50.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "bca0968e-6600-487b-8878-8ecacc6b7464")
+	)
+	(label "+15V"
+		(at 154.94 25.40 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7f5071d4-aed0-4aac-86f9-06e044c1d531")
+	)
+	(label "GND"
+		(at 154.94 35.56 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ff27643e-462e-482f-8bff-221608090641")
+	)
+	(label "+15V"
+		(at 167.64 27.94 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b4dec8dc-78af-4ae7-868b-1134555cb959")
+	)
+	(label "GND"
+		(at 167.64 33.02 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "889cb647-b193-48be-bbc4-71cb09f8de85")
+	)
+	(label "MIC_PRE_OUT"
+		(at 205.74 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5b905f0e-2855-4734-9118-ca80c1145c7c")
+	)
+	(label "MIC_VOL_POT_IN"
+		(at 205.74 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b79aa552-8d13-42bc-808c-32d3ac4a9c02")
+	)
+	(label "MIC_VOL_POT_IN"
+		(at 220.98 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f1736b46-4044-48e6-ad9d-f3ba3c149919")
+	)
+	(label "MODE_A_MIC_SIG"
+		(at 223.52 50.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b9f3d2df-1275-4aa2-a93e-c88c29040d98")
+	)
+	(label "GND"
+		(at 220.98 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9a4d2717-8b90-4984-8717-346242a875cc")
+	)
+	(label "GND_CHASSIS"
+		(at 35.56 106.68 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b42ff711-6953-46aa-a9de-fc838286d2f0")
+	)
+	(label "LINE_HOT_RAW"
+		(at 35.56 109.22 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "381034af-5494-4a8a-815a-d9d49e9a9705")
+	)
+	(label "LINE_COLD_RAW"
+		(at 35.56 111.76 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f1caa3a5-aa41-4bfc-9138-5301c708a39b")
+	)
+	(label "GND"
+		(at 50.80 96.52 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3c5a32cf-cdcf-490d-85e9-6f817a22d8a2")
+	)
+	(label "LINE_HOT_RAW"
+		(at 50.80 101.60 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d8517709-6c21-45a2-9d93-aacced980c10")
+	)
+	(label "LINE_COLD_RAW"
+		(at 50.80 116.84 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aa23acf3-9089-4ad2-9181-a9416af5d517")
+	)
+	(label "GND"
+		(at 50.80 121.92 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "503e4c43-417f-4d1d-b1a5-72d6b0e579cd")
+	)
+	(label "GND"
+		(at 60.96 96.52 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "099b4b40-2a49-4b57-8c74-a42d9a137587")
+	)
+	(label "LINE_HOT_RAW"
+		(at 60.96 101.60 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "da046b3e-d42f-4425-989a-9a01d932fc58")
+	)
+	(label "LINE_COLD_RAW"
+		(at 60.96 116.84 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3dbd5b5c-1693-4f0a-b0e3-dea493b23ed8")
+	)
+	(label "GND"
+		(at 60.96 121.92 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0044cd5b-788f-4424-bcc3-e4dde936dcf7")
+	)
+	(label "LINE_HOT_RAW"
+		(at 76.20 101.60 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "11299a08-a0ac-48ed-8580-448bf8cda70c")
+	)
+	(label "LINE_HOT_AC"
+		(at 76.20 106.68 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e1a3c69f-388e-477f-957f-ce03300fb42c")
+	)
+	(label "LINE_COLD_AC"
+		(at 76.20 111.76 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ea4f07f9-728c-4855-b600-7314a9467e02")
+	)
+	(label "LINE_COLD_RAW"
+		(at 76.20 116.84 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c05ab3a0-993d-463e-be99-72fffff25a20")
+	)
+	(label "LINE_HOT_AC"
+		(at 91.44 101.60 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "df30ffb9-0212-40b5-a8c6-37552eb34177")
+	)
+	(label "LINE_REC_NONINV"
+		(at 91.44 106.68 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a8888957-9709-4e2b-ad92-121a9fdd7bc9")
+	)
+	(label "LINE_REC_INV"
+		(at 91.44 111.76 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7be753a8-605b-44e6-a072-da7b7b693a3c")
+	)
+	(label "LINE_COLD_AC"
+		(at 91.44 116.84 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5f446b1e-9350-4589-997c-0333f2621998")
+	)
+	(label "VBIAS_7V5"
+		(at 109.22 91.44 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e04a2d47-6460-4e81-bf98-ce882609d1da")
+	)
+	(label "LINE_REC_NONINV"
+		(at 109.22 96.52 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "35d9adfa-5cae-4c7c-ad97-d636354fb5c5")
+	)
+	(label "LINE_REC_INV"
+		(at 109.22 121.92 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f906dced-3c85-48cc-8fd5-359b4463ae0f")
+	)
+	(label "LINE_REC_OUT"
+		(at 109.22 127.00 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "11cc9a73-56c8-4077-b1cd-441bb67eed03")
+	)
+	(label "LINE_REC_NONINV"
+		(at 119.38 106.68 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3044951b-725e-4be3-aefc-c4d77bc1fc17")
+	)
+	(label "LINE_REC_INV"
+		(at 119.38 111.76 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7f523233-eb20-4043-ae48-97ebb21926f2")
+	)
+	(label "LINE_REC_OUT"
+		(at 129.54 109.22 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a6600da2-0be7-4527-a8cc-45eb638a2308")
+	)
+	(label "+15V"
+		(at 154.94 83.82 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3e7a322d-4e57-4488-87b6-6d557bfcbafc")
+	)
+	(label "GND"
+		(at 154.94 93.98 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c90be334-39c5-496a-b837-3b20a6869953")
+	)
+	(label "+15V"
+		(at 167.64 86.36 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "32448640-a98a-4848-81fd-f55bdd0c1682")
+	)
+	(label "GND"
+		(at 167.64 91.44 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cafe9aca-cd11-4120-b103-4111dd300460")
+	)
+	(label "LINE_REC_OUT"
+		(at 144.78 106.68 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8fa9ca53-24c0-40af-af77-2bc0059a0786")
+	)
+	(label "LINE_VOL_POT_IN"
+		(at 144.78 111.76 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2ed98f7e-baed-4a8d-944c-24bdeb3669b0")
+	)
+	(label "LINE_VOL_POT_IN"
+		(at 160.02 106.68 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "53ac3336-c374-42d2-aa39-438a91b6692b")
+	)
+	(label "MODE_B_LINE_SIG"
+		(at 162.56 109.22 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d27d7e76-1bbf-44ed-af07-8dd3a217bd39")
+	)
+	(label "GND"
+		(at 160.02 111.76 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e8533fc7-467c-4da6-ad6d-66eb5fbcdd7d")
+	)
+	(label "MODE_A_MIC_SIG"
+		(at 243.84 76.20 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e8aca907-fbf2-4938-88b8-258f4a6b1143")
+	)
+	(label "SELECTED_AUDIO"
+		(at 248.92 76.20 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "08a2c661-4b5b-49c8-bce3-c69dc491a48e")
+	)
+	(label "MODE_B_LINE_SIG"
+		(at 254.00 76.20 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "24e271e5-be03-47d9-a0ea-4cd6589ab421")
+	)
+	(label "+15V"
+		(at 243.84 81.28 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e8446a08-8b99-4344-9d70-cb0aac18318a")
+	)
+	(label "MODE_STATUS"
+		(at 248.92 81.28 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ec9784d6-1f86-4566-b353-ba193eff661b")
+	)
+	(label "GND"
+		(at 254.00 81.28 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "91d1f1e5-3989-4767-86ee-d12f3b248856")
+	)
+	(label "MODE_STATUS"
+		(at 269.24 81.28 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "db6c6220-de5e-4b6b-92a8-5e80847955c1")
+	)
+	(label "SELECTED_AUDIO"
+		(at 276.86 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d6bc46da-a17c-4b34-a2ed-5a1ade396b89")
+	)
+	(label "HPF_MID_NODE"
+		(at 276.86 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0f2acc97-927d-4d3e-8d7b-91e8c0bb905f")
+	)
+	(label "HPF_OUT"
+		(at 287.02 33.02 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c7a3ed31-a16c-4ef6-9003-faef2bb1ef56")
+	)
+	(label "HPF_MID_NODE"
+		(at 287.02 38.10 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "905e8f71-abc4-4ba3-bd56-4df8a9818f3b")
+	)
+	(label "HPF_MID_NODE"
+		(at 294.64 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "29dddac1-ad72-4c93-8aeb-d1d23340cdee")
+	)
+	(label "HPF_NONINV"
+		(at 294.64 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a4f17839-7ccf-4a20-ad8c-6fa37327caf9")
+	)
+	(label "HPF_NONINV"
+		(at 294.64 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6375aa3f-90af-45ff-8172-cedd6fcda771")
+	)
+	(label "VBIAS_7V5"
+		(at 294.64 68.58 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7147b0ee-4e10-4341-a132-c5fb6c9afd8c")
+	)
+	(label "HPF_NONINV"
+		(at 304.80 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6f12d0aa-c5e9-4bf9-9031-59bce03b1493")
+	)
+	(label "HPF_OUT"
+		(at 304.80 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "de592f1c-2892-4292-9434-e9ce55b8f39c")
+	)
+	(label "HPF_OUT"
+		(at 314.96 50.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "536bf1e8-69be-469e-bd67-9531e24eadd6")
+	)
+	(label "HPF_OUT"
+		(at 325.12 48.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d6418f31-f54a-4051-a6ff-8203b1d42575")
+	)
+	(label "AMP_INPUT_SIG"
+		(at 325.12 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0ad0debf-861a-4ad3-97d0-30b616c08337")
+	)
+	(label "AMP_INPUT_SIG"
+		(at 335.28 63.50 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ae6b9e96-289b-4edf-b367-55ce0bd87666")
+	)
+	(label "GND"
+		(at 335.28 68.58 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9d08d9f8-45ee-4590-9882-35b34e3ac764")
+	)
+	(label "DC_IN_RAW"
+		(at 38.10 170.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "726d9e82-6326-41d9-87ff-290680b8f57f")
+	)
+	(label "GND"
+		(at 38.10 172.72 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "55c151cd-6edc-486d-a941-6019a8e75a78")
+	)
+	(label "DC_IN_RAW"
+		(at 55.88 162.56 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2f9982be-84ba-435b-873d-909b26ef67ab")
+	)
+	(label "DC_FUSE_OUT"
+		(at 55.88 167.64 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6fb886c7-408a-4bd8-8ce5-720e93010ec0")
+	)
+	(label "PMOS_GATE"
+		(at 71.12 165.10 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7a003154-1ce9-4fe7-9fd7-bce23075b1ac")
+	)
+	(label "DC_FUSE_OUT"
+		(at 78.74 160.02 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "88384006-bef0-4904-a9ec-d775c7163877")
+	)
+	(label "+36V"
+		(at 78.74 170.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d6eff7a6-e830-4d34-9b40-8d0c509b19d3")
+	)
+	(label "+36V"
+		(at 68.58 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cdbf135d-0e27-473e-b43f-224b0a104d88")
+	)
+	(label "PMOS_GATE"
+		(at 68.58 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b86ffaf0-736e-42cf-9239-85a3045113df")
+	)
+	(label "PMOS_GATE"
+		(at 78.74 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3de16b7e-e6d2-4f34-b0b1-dc34345009bf")
+	)
+	(label "GND"
+		(at 78.74 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "edf1d124-2561-4a87-b953-07a8f4dce029")
+	)
+	(label "+36V"
+		(at 93.98 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "930da59b-f11e-463b-a472-1c212c897235")
+	)
+	(label "GND"
+		(at 93.98 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d97b65cc-191b-40a4-a115-9a91e9c0e094")
+	)
+	(label "+36V"
+		(at 109.22 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4de3911b-7c60-4a02-ba59-20bb8665d5d8")
+	)
+	(label "GND"
+		(at 109.22 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0526e9c6-df40-497f-92bc-63fdaf4cbaf0")
+	)
+	(label "+36V"
+		(at 124.46 162.56 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "465bbf91-3bb9-4ec1-b4bb-11c1d24364e9")
+	)
+	(label "LM317_ADJ"
+		(at 129.54 170.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "81b5c135-f719-45b5-a582-0fed58c3552b")
+	)
+	(label "+15V"
+		(at 134.62 162.56 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dec4df40-bc78-4264-8882-80016745371d")
+	)
+	(label "+15V"
+		(at 139.70 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8b6787ec-9150-4de2-b276-e8d6ef37ae9f")
+	)
+	(label "LM317_ADJ"
+		(at 139.70 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ab781c0b-0962-406e-88bd-d2841cc080df")
+	)
+	(label "LM317_ADJ"
+		(at 149.86 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6d34750a-fe4a-4860-a32e-63e0d48f945e")
+	)
+	(label "GND"
+		(at 149.86 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "87899005-d960-4646-aa93-b0a211deb1b1")
+	)
+	(label "LM317_ADJ"
+		(at 160.02 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "69e278b5-5161-4905-8574-e21417ff7379")
+	)
+	(label "GND"
+		(at 160.02 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7bee6279-bf1f-4675-bf28-ace7b21bca62")
+	)
+	(label "+36V"
+		(at 129.54 147.32 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8327d1e7-2066-4aa8-8fdf-d71ff8aee4ae")
+	)
+	(label "+15V"
+		(at 129.54 152.40 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "860e5e82-6be4-40b1-b598-91b80866eb55")
+	)
+	(label "+15V"
+		(at 144.78 170.18 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a1b08fcc-f6ad-48bc-9f66-7c4cb93a1f2d")
+	)
+	(label "LM317_ADJ"
+		(at 144.78 175.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b868d23a-0965-491f-aaf3-629e1f5a9cae")
+	)
+	(label "+15V"
+		(at 175.26 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f62652ee-e75a-46db-aac9-6ad8a84d2f55")
+	)
+	(label "GND"
+		(at 175.26 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "497aeb5e-3da4-4901-9f72-b7109eca5542")
+	)
+	(label "+15V"
+		(at 185.42 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "efa2f810-b664-4349-b274-4f0b086754e4")
+	)
+	(label "GND"
+		(at 185.42 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b5a016d8-8052-40ec-87ee-e0efc3d61263")
+	)
+	(label "+15V"
+		(at 205.74 162.56 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2eb17919-7470-4c2d-a1a2-eccae3c7f165")
+	)
+	(label "VBIAS_DIV"
+		(at 205.74 167.64 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b9387213-a058-4041-8e7b-8437076bd460")
+	)
+	(label "VBIAS_DIV"
+		(at 205.74 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7956ba7d-1e76-46e0-9405-45f243d8e9e2")
+	)
+	(label "GND"
+		(at 205.74 187.96 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e0042a65-5f1e-4ede-b5ec-19a455a69235")
+	)
+	(label "VBIAS_DIV"
+		(at 215.90 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3fc85446-3454-4864-b6c1-59969e79c5f1")
+	)
+	(label "GND"
+		(at 215.90 187.96 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2bb5c071-d2e0-4ad3-a0aa-0394a4cd389c")
+	)
+	(label "VBIAS_DIV"
+		(at 231.14 172.72 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6113a2c1-76ac-4949-9565-ab8b3e8d0373")
+	)
+	(label "VBIAS_7V5"
+		(at 231.14 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0caee4b6-94c7-489a-8528-ae7d4cf993de")
+	)
+	(label "VBIAS_7V5"
+		(at 241.30 175.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f47f00ae-98c6-49ca-bbaf-1dcb72803ced")
+	)
+	(label "VBIAS_7V5"
+		(at 254.00 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4c8e9305-1b85-4be6-9181-ca56b68589d0")
+	)
+	(label "GND"
+		(at 254.00 187.96 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d5ffa897-4f9a-452f-83c5-3f9f3658b173")
+	)
+	(label "VBIAS_7V5"
+		(at 264.16 182.88 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a0dfc32c-e83e-46e3-ad17-03db8a2c3c13")
+	)
+	(label "GND"
+		(at 264.16 187.96 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "48452148-e06e-450c-b10a-5b87f73a9f4f")
+	)
+	(label "VBIAS_7V5"
+		(at 289.56 172.72 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e011ec8c-378e-49eb-953d-d3c438993b4a")
+	)
+	(label "SPARE_OUT"
+		(at 289.56 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a878ecd2-1f0a-4e83-a88a-9717c21f43af")
+	)
+	(label "SPARE_OUT"
+		(at 299.72 175.26 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dfa04ba0-55d0-43f1-92cf-fe2a89cb5a16")
+	)
+	(label "+15V"
+		(at 264.16 149.86 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9813162d-acb7-4077-bb23-be0d603bdcfd")
+	)
+	(label "GND"
+		(at 264.16 160.02 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3841efe2-74b6-4bfe-a0a3-290eee5b72dd")
+	)
+	(label "+15V"
+		(at 276.86 152.40 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "144f163b-5a06-4014-9ab4-92ed8f113311")
+	)
+	(label "GND"
+		(at 276.86 157.48 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3c57fe36-7d9e-4e57-8302-98c338d84c35")
+	)
+	(label "+36V"
+		(at 353.06 50.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "35e41399-796d-4914-8a4b-99f4cfede1d5")
+	)
+	(label "GND"
+		(at 353.06 53.34 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4311c904-42a7-4e58-a3cb-f09d87314dc0")
+	)
+	(label "AMP_INPUT_SIG"
+		(at 353.06 76.20 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6fcb0722-021d-4083-bee5-1957c69770b3")
+	)
+	(label "GND"
+		(at 353.06 78.74 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e8dbe8c7-6ee9-4c92-9ce8-8f24ae0c9209")
+	)
+	(label "GND_CHASSIS"
+		(at 353.06 81.28 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "84353a1e-7f0b-4471-946a-74154865d409")
+	)
+	(label "AMP_OUT_POS"
+		(at 353.06 119.38 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "890e8fda-3d96-4223-9d5f-e80a2cf67973")
+	)
+	(label "AMP_OUT_NEG"
+		(at 353.06 121.92 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e327d575-46a0-4363-a446-f7cf292cc2d2")
+	)
+	(label "AMP_OUT_POS"
+		(at 375.92 93.98 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "df368486-5d7f-436e-a584-2d11c78269d8")
+	)
+	(label "SPK_OUT_POS"
+		(at 386.08 93.98 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cbee8cff-5916-4775-a570-fcc3a486be62")
+	)
+	(label "AMP_OUT_POS"
+		(at 381.00 106.68 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "23e83109-a7fb-41fa-ad80-11f1379299d2")
+	)
+	(label "SPK_OUT_POS"
+		(at 381.00 111.76 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2b34b2d2-67f7-4544-b1c1-60006f30de45")
+	)
+	(label "AMP_OUT_POS"
+		(at 381.00 121.92 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6efbb9d3-da83-4153-bc59-f41f3dc3098f")
+	)
+	(label "SPK_OUT_POS"
+		(at 381.00 127.00 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "51c8708d-f43b-43b8-b3c7-789480edf6e2")
+	)
+	(label "AMP_OUT_POS"
+		(at 381.00 137.16 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9d5fa5f6-6341-46db-a14d-e233cfe4d1a3")
+	)
+	(label "SPK_OUT_POS"
+		(at 381.00 142.24 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "44848fe7-f23f-4cac-bc40-cc3e5e97a864")
+	)
+	(label "SPK_OUT_POS"
+		(at 414.02 119.38 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a233fe4f-671d-4861-b180-a7daa2adc93e")
+	)
+	(label "AMP_OUT_NEG"
+		(at 414.02 121.92 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "acb5c594-7b00-4bb1-b531-59d240b62571")
+	)
+	(label "GND"
+		(at 35.56 177.80 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "67ee60bb-b37b-4f04-ac5f-69f08ff8fc47")
+	)
+	(label "+36V"
+		(at 99.06 160.02 0.0000)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ce66be67-4f79-4970-8da0-e1228def4af9")
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

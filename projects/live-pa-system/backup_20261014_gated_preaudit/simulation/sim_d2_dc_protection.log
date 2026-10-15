@@ -1,0 +1,110 @@
+Using SPARSE 1.3 as Direct Linear Solver
+
+Note: No compatibility mode selected!
+
+
+Circuit: * gate d2 simulation: reverse polarity protection & lm317hv +15v regulation
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+dc_in_raw                                   36
+dc_fuse_out                            35.9604
+gate_p                                 23.7499
+dc_36v_prot                            35.6722
+x_reg.ref                              15.0577
+adj_node                               13.8077
+reg_out                                15.0577
+vbias_div                              7.52887
+vbias_out_int                          7.52881
+vbias_node                              7.5288
+b.x_reg.b_pass#branch               -0.0319228
+e_u3a#branch                      -0.000376437
+v.x_reg.vref#branch                          0
+vin_raw#branch                       -0.991155
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 408
+v_in_prot           =  3.593451e+01 from=  1.000000e-02 to=  2.000000e-02
+v_drop_pmos         =  2.555561e-02 from=  1.000000e-02 to=  2.000000e-02
+v_reg_out           =  1.505805e+01 from=  1.000000e-02 to=  2.000000e-02
+v_bias              =  7.528819e+00 from=  1.000000e-02 to=  2.000000e-02
+v_reg_pk2pk         =  1.456207e-04 from=  1.000000e-02 to=  2.000000e-02
+v_in_pk2pk          =  1.996324e-01 from=  1.000000e-02 to=  2.000000e-02
+i_reg_out           =  3.715372e-02 from=  1.000000e-02 to=  2.000000e-02
+pd_lm317_nom        =  7.756381e-01 from=  1.000000e-02 to=  2.000000e-02
+v_in_prot = 3.593451e+01
+v_drop_pmos = 2.555561e-02
+v_reg_out = 1.505805e+01
+v_bias = 7.528819e+00
+i_reg_out = 3.715372e-02
+pd_lm317_nom = 7.756381e-01
+ripple_rejection_db = 6.274016e+01
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+dc_in_raw                                   36
+dc_fuse_out                            35.9604
+gate_p                                 23.7499
+dc_36v_prot                            35.6722
+x_reg.ref                              15.0577
+adj_node                               13.8077
+reg_out                                15.0577
+vbias_div                              7.52887
+vbias_out_int                          7.52881
+vbias_node                              7.5288
+b.x_reg.b_pass#branch               -0.0570044
+e_u3a#branch                      -0.000376437
+v.x_reg.vref#branch                          0
+vin_raw#branch                       -0.991155
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 408
+i_reg_out_max       =  6.223580e-02 from=  1.000000e-02 to=  2.000000e-02
+pd_lm317_max        =  1.299263e+00 from=  1.000000e-02 to=  2.000000e-02
+i_reg_out_max = 6.223580e-02
+pd_lm317_max = 1.299263e+00
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+dc_in_raw                                  -36
+dc_fuse_out                                -36
+gate_p                            -5.35107e-15
+dc_36v_prot                       -3.85906e-08
+x_reg.ref                                 1.25
+adj_node                          -8.48756e-12
+reg_out                                      0
+vbias_div                                    0
+vbias_out_int                                0
+vbias_node                                   0
+b.x_reg.b_pass#branch             -4.58112e-14
+e_u3a#branch                                 0
+v.x_reg.vref#branch                          0
+vin_raw#branch                     1.07173e-09
+
+
+No. of Data Rows : 208
+v_rev_prot          =  -3.859060e-08 at=  9.964000e-03
+v_rev_reg           =  0.000000e+00 at=  1.000000e-02
+i_rev_fuse          =  1.071726e-09 at=  1.000000e-02
+v_rev_prot = -3.85906e-08
+v_rev_reg = 0.000000e+00
+i_rev_fuse = 1.071726e-09
+Note: Simulation executed from .control section 

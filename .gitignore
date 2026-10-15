@@ -1,0 +1,19 @@
+# KiCad temporary and backup files
+*.lck
+*.bak
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.kicad_prl-bak
+_saved*
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Operating System and Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

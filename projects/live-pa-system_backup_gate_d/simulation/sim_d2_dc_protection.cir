@@ -1,0 +1,109 @@
+* Gate D2 Simulation: Reverse Polarity Protection & LM317HV +15V Regulation
+* Includes P-MOSFET reverse protection (Drain to Input, Source to Load)
+* and LM317HV regulator powered strictly from protected DC rail
+
+* --- 1. DC Input Source ---
+* Normal Polarity: +36V DC with 100mVpp 100Hz ripple (simulating adapter ripple)
+Vin_raw DC_IN_RAW 0 DC 36.0 SIN(36.0 0.1 100)
+
+* Slow-Blow Fuse Resistance (T3.15A 5x20mm ceramic, typ Rdc = 0.04 ohm)
+R_fuse DC_IN_RAW DC_FUSE_OUT 0.04
+
+* --- 2. P-Channel MOSFET Reverse Polarity Circuit ---
+* High-side P-MOSFET:
+* DRAIN connected to raw input (DC_FUSE_OUT)
+* SOURCE connected to protected rail (DC_36V_PROT)
+* GATE connected to pull-down and Zener clamp
+* Drain Gate Source Bulk:
+M_prot DC_FUSE_OUT GATE_P DC_36V_PROT DC_36V_PROT PMOS_SW
+
+* Intrinsic body diode: Anode = DRAIN (DC_FUSE_OUT), Cathode = SOURCE (DC_36V_PROT)
+D_body DC_FUSE_OUT DC_36V_PROT D_BODY_MOD
+.model D_BODY_MOD D (IS=1e-9 RS=0.03 BV=60)
+
+* Gate pull-down resistor to GND
+R_gatedown GATE_P 0 100k
+
+* 12V Zener Diode clamp between Source and Gate:
+* Cathode at Source (DC_36V_PROT), Anode at Gate (GATE_P)
+D_zener GATE_P DC_36V_PROT D_1N4742A
+
+* Generic PMOS model (IRF4905 / AOD403: Vto=-3V, Rd=0.02, Rs=0.02)
+.model PMOS_SW PMOS (VTO=-3.0 KP=20 RD=0.01 RS=0.01)
+* 12V Zener model (1N4742A: Vz=12V)
+.model D_1N4742A D (BV=12.0 IBV=5m RS=5)
+
+* Main 36V Load: TPA3255 amplifier idle/nominal load (1A load -> 36 ohms)
+R_tpa_load DC_36V_PROT 0 36.0
+
+* --- 3. LM317HV +15V Regulator Circuit ---
+* Input filter capacitor
+C_in_bulk DC_36V_PROT 0 100u
+C_in_hf   DC_36V_PROT 0 100n
+
+* Supply-dependent LM317 Subcircuit Model
+.subckt LM317_MOD IN ADJ OUT
+  * Internal 1.25V bandgap reference between internal node and ADJ
+  Vref REF ADJ 1.25
+  * Error amplifier controlling output pass voltage
+  * Passes voltage up to V(IN) - 2.0V (dropout voltage = 2.0V)
+  B_pass OUT 0 V = max(0, min(V(IN) - 2.0, V(ADJ) + 1.25))
+  * Internal bias load
+  R_bias IN ADJ 1Meg
+.ends LM317_MOD
+
+X_reg DC_36V_PROT ADJ_NODE REG_OUT LM317_MOD
+
+* Programming resistors for +15.0V output:
+* R1 = 240 ohms, R2 = 2.64k ohms (2.4k + 240 in series)
+R1 REG_OUT ADJ_NODE 240
+R2 ADJ_NODE 0 2640
+
+* ADJ bypass capacitor for ripple rejection
+C_adj ADJ_NODE 0 10u
+D_cadj ADJ_NODE REG_OUT D_1N4007
+
+* Output protection diode
+D_prot REG_OUT DC_36V_PROT D_1N4007
+.model D_1N4007 D (IS=7n RS=0.04 BV=1000)
+
+* Output filtering
+C_out_bulk REG_OUT 0 100u
+C_out_hf   REG_OUT 0 100n
+
+* Preamp DC Load (NE5532 dual op-amp draws ~16mA at 15V -> 937.5 ohms)
+R_preamp_load REG_OUT 0 937.5
+
+* --- 4. Vbias (+7.5V) Virtual Ground Generator ---
+R_bias1 REG_OUT VBIAS_NODE 10k
+R_bias2 VBIAS_NODE 0 10k
+C_bias_bulk VBIAS_NODE 0 47u
+C_bias_hf   VBIAS_NODE 0 100n
+R_bias_load VBIAS_NODE 0 100k
+
+.control
+  * 1. Transient Analysis: Normal +36V operation
+  tran 50u 20m
+  let v_drop = v(DC_FUSE_OUT) - v(DC_36V_PROT)
+  meas tran v_in_prot avg v(DC_36V_PROT) from=10m to=20m
+  meas tran v_drop_pmos avg v_drop from=10m to=20m
+  meas tran v_reg_out avg v(REG_OUT) from=10m to=20m
+  meas tran v_bias    avg v(VBIAS_NODE) from=10m to=20m
+  meas tran v_reg_pk2pk pp v(REG_OUT) from=10m to=20m
+  meas tran v_in_pk2pk  pp v(DC_36V_PROT) from=10m to=20m
+  let ripple_rejection_db = 20 * log10(v_in_pk2pk / v_reg_pk2pk)
+  print v_in_prot v_drop_pmos v_reg_out v_bias ripple_rejection_db
+
+  * 2. Reverse Polarity Test: Invert input to -36V
+  alter Vin_raw dc = -36.0
+  alter Vin_raw sin = [ -36.0 0 100 ]
+  tran 50u 10m
+  let i_fuse_rev = abs(i(Vin_raw))
+  meas tran v_rev_prot max v(DC_36V_PROT) from=5m to=10m
+  meas tran v_rev_reg  max v(REG_OUT) from=5m to=10m
+  meas tran i_rev_fuse max i_fuse_rev from=5m to=10m
+  print v_rev_prot v_rev_reg i_rev_fuse
+.endc
+
+.end
+

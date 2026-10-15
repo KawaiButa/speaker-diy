@@ -1,0 +1,82 @@
+* Gate D Repair: Active 60Hz 2nd-Order Sallen-Key High-Pass Filter Testbench
+* Components: C1 = C2 = 68nF Film (5%), R1 = 27k 1%, R2 = 56k 1%
+* Unity-Gain Voltage Follower (NE5532 Op-Amp)
+* Operating from single +15V DC supply with Vbias = +7.5V
+
+.param VCC_VAL=15.0
+.param VBIAS_VAL=7.5
+
+VCC 15V_RAIL 0 DC {VCC_VAL}
+VBIAS VBIAS_NODE 0 DC {VBIAS_VAL}
+
+* Signal Generator representing Selected Audio from Volume Wiper (0V DC, 1.0V AC)
+Vin_raw HPF_IN_RAW 0 AC 1.0 0 SIN(0 1.0 1k)
+
+* Source resistance from volume wiper:
+* Rs = 50 ohms at 100% rotation; Rs = 2.5k at 50% rotation
+R_pot_wiper HPF_IN_RAW HPF_IN 50
+
+* --- Sallen-Key 2nd-order High-Pass Filter (U2A) ---
+* C1 (C8 in sch) between HPF_IN and intermediate node (inherently blocks DC!)
+C1 HPF_IN HPF_MID 68n
+* C2 (C9 in sch) between HPF_MID and non-inverting op-amp input
+C2 HPF_MID HPF_NONINV 68n
+
+* R1 (R9 in sch) between intermediate node and op-amp output
+R1 HPF_MID HPF_OUT 27k
+* R2 (R11 in sch) between non-inverting input and Vbias
+R2 HPF_NONINV VBIAS_NODE 56k
+
+* NE5532 Op-Amp configured as unity-gain voltage follower (U2A: pins 3, 2, 1)
+E_OP HPF_OUT_INT 0 HPF_NONINV HPF_OUT 100k
+R_out HPF_OUT_INT HPF_OUT 50
+
+* Master Output AC coupling (C14 in sch) to TPA3255 input impedance (~20k) and bleeder (R24 = 100k)
+C_out HPF_OUT OUT_AC 10u
+R_bleed OUT_AC 0 100k
+R_load OUT_AC 0 20k
+
+.control
+  * AC Analysis: 10 Hz to 50 kHz
+  ac dec 100 10 50k
+
+  meas ac gain_1k find vdb(OUT_AC) at=1k
+  meas ac gain_100hz find vdb(OUT_AC) at=100
+  meas ac gain_70hz find vdb(OUT_AC) at=70
+  meas ac gain_60hz find vdb(OUT_AC) at=60
+  meas ac gain_50hz find vdb(OUT_AC) at=50
+  meas ac gain_25hz find vdb(OUT_AC) at=25
+  meas ac gain_20hz find vdb(OUT_AC) at=20
+
+  * Attenuation relative to 1 kHz passband reference
+  let atten_100 = gain_100hz - gain_1k
+  let atten_70  = gain_70hz - gain_1k
+  let atten_60  = gain_60hz - gain_1k
+  let atten_50  = gain_50hz - gain_1k
+  let atten_25  = gain_25hz - gain_1k
+  let atten_20  = gain_20hz - gain_1k
+
+  print gain_1k
+  print atten_100 atten_70 atten_60 atten_50 atten_25 atten_20
+
+  * Find exact -3.01 dB cutoff frequency (rising from low to high freq)
+  meas ac fc when vdb(OUT_AC)=-3.01
+  print fc
+
+  * Measure Q from peak / passband behavior:
+  * For Butterworth, response is maximally flat with no peak (Q = 0.707).
+  meas ac max_gain max vdb(OUT_AC) from=10 to=50k
+  let peaking_db = max_gain - gain_1k
+  print max_gain peaking_db
+
+  * Check behavior at mid-volume (Rs = 2.5k from 10k log pot at 50% electrical rotation)
+  alter R_pot_wiper = 2.5k
+  ac dec 100 10 50k
+  meas ac fc_midpot when vdb(OUT_AC)=-3.01
+  meas ac gain_1k_mid find vdb(OUT_AC) at=1k
+  meas ac atten_25_mid find vdb(OUT_AC) at=25
+  let atten_25_mid_rel = atten_25_mid - gain_1k_mid
+  print fc_midpot gain_1k_mid atten_25_mid_rel
+.endc
+
+.end

@@ -1,0 +1,92 @@
+* Gate D Repair: Balanced LINE Receiver with +22 dBu Headroom
+* Attenuation: Ad = 10k / 30k = 1/3 = -9.54 dB
+* Handles Nominal +4 dBu and Stress +22 dBu without clipping on single +15V rail (Vbias = +7.5V)
+
+.param VCC_VAL=15.0
+.param VBIAS_VAL=7.5
+
+VCC 15V_RAIL 0 DC {VCC_VAL}
+VBIAS VBIAS_NODE 0 DC {VBIAS_VAL}
+
+* --- Test Sources ---
+* Case 1: Nominal +4 dBu (1.228 Vrms = 1.737 Vpk diff -> Hot = +0.8685 Vpk, Cold = -0.8685 Vpk)
+* Case 2: Stress +22 dBu (9.752 Vrms = 13.792 Vpk diff -> Hot = +6.896 Vpk, Cold = -6.896 Vpk)
+Vline_hot LINE_HOT_RAW 0 AC 0.5 0 SIN(0 0.8685 1k)
+Vline_cold LINE_COLD_RAW 0 AC -0.5 0 SIN(0 -0.8685 1k)
+
+* DC blocking and RF filtering
+C_in1 LINE_HOT_RAW LINE_HOT 1u
+C_in2 LINE_COLD_RAW LINE_COLD 1u
+R_bleed1 LINE_HOT 0 100k
+R_bleed2 LINE_COLD 0 100k
+C_rf1 LINE_HOT 0 47p
+C_rf2 LINE_COLD 0 47p
+
+* Differential Attenuator Stage: R_in = 30k 0.1%, R_fb = 10k 0.1%
+R_in_cold LINE_COLD LINE_INV 30k
+R_in_hot  LINE_HOT  LINE_NONINV 30k
+R_bias    LINE_NONINV VBIAS_NODE 10k
+R_fb      LINE_INV LINE_OUT 10k
+
+* NE5532 Op-Amp Model with Diode-Clamped Output Saturation (1.8V to 13.2V)
+E_OP1 LINE_OUT_INT 0 LINE_NONINV LINE_INV 100k
+R_out1 LINE_OUT_INT LINE_OUT 50
+
+* Saturation clamp diodes (1.8V lower limit, 13.2V upper limit)
+V_sat_pos POS_RAIL_CLAMP 0 DC 12.6
+V_sat_neg NEG_RAIL_CLAMP 0 DC 2.4
+D_sat_high LINE_OUT POS_RAIL_CLAMP D_CLAMP
+D_sat_low  NEG_RAIL_CLAMP LINE_OUT D_CLAMP
+.model D_CLAMP D (IS=1e-12 RS=1 BV=50)
+
+* AC coupling from op-amp output to 10k volume potentiometer
+C_out_dc LINE_OUT POT_TOP 10u
+R_pot_gnd POT_TOP 0 10k
+* Load seen by pot wiper at 100% position (TPA3255 input impedance ~20k)
+R_load POT_TOP 0 20k
+
+.control
+  * 1. AC Analysis: Differential Gain
+  ac dec 50 10 100k
+  meas ac diff_gain_1k find vdb(POT_TOP) at=1k
+  meas ac diff_gain_20hz find vdb(POT_TOP) at=20
+  meas ac diff_gain_20k find vdb(POT_TOP) at=20k
+  set diff_1k = "$&diff_gain_1k"
+  print diff_gain_1k diff_gain_20hz diff_gain_20k
+
+  * 2. Transient Analysis at Nominal +4 dBu (1.737 Vpk diff)
+  tran 10u 5m
+  meas tran vout_nom_pk max v(POT_TOP) from=2m to=5m
+  meas tran vout_op_max max v(LINE_OUT) from=2m to=5m
+  meas tran vout_op_min min v(LINE_OUT) from=2m to=5m
+  print vout_nom_pk vout_op_max vout_op_min
+
+  * 3. Transient Analysis at Stress +22 dBu (13.792 Vpk diff)
+  alter Vline_hot sin = [ 0 6.896 1k ]
+  alter Vline_cold sin = [ 0 -6.896 1k ]
+  tran 10u 5m
+  meas tran vout_22dbu_pk max v(POT_TOP) from=2m to=5m
+  meas tran vout_op_22_max max v(LINE_OUT) from=2m to=5m
+  meas tran vout_op_22_min min v(LINE_OUT) from=2m to=5m
+  let pos_margin = 13.2 - vout_op_22_max
+  let neg_margin = vout_op_22_min - 1.8
+  print vout_22dbu_pk vout_op_22_max vout_op_22_min pos_margin neg_margin
+
+  * 4. CMRR Analysis with Worst-Case 0.1% Resistor Mismatch
+  * Rin_cold = 30k * 1.001 = 30030, Rfb = 10k * 0.999 = 9990
+  * Rin_hot  = 30k * 0.999 = 29970, Rbias = 10k * 1.001 = 10010
+  alter R_in_cold = 30030
+  alter R_fb      = 9990
+  alter R_in_hot  = 29970
+  alter R_bias    = 10010
+  alter Vline_hot ac = 1.0
+  alter Vline_cold ac = 1.0
+  ac dec 10 10 100k
+  meas ac cm_gain_1k find vdb(POT_TOP) at=1k
+  meas ac cm_gain_60hz find vdb(POT_TOP) at=60
+  let cmrr_1k = $diff_1k - cm_gain_1k
+  let cmrr_60hz = $diff_1k - cm_gain_60hz
+  print cm_gain_1k cm_gain_60hz cmrr_1k cmrr_60hz
+.endc
+
+.end

@@ -1,0 +1,221 @@
+Using SPARSE 1.3 as Direct Linear Solver
+Using SPARSE 1.3 as Direct Linear Solver
+Using SPARSE 1.3 as Direct Linear Solver
+Using SPARSE 1.3 as Direct Linear Solver
+
+Note: No compatibility mode selected!
+
+
+Circuit: DIY Active Stage Monitor - Complete System Simulation
+
+======================================================================
+GATE D FINAL VERIFICATION: DIY ACTIVE STAGE MONITOR SYSTEM SIMULATION
+======================================================================
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 1
+--- 1. DC OPERATING POINT VERIFICATION ---
+v_raw36 = 3.600000e+01
+v_prot36 = 3.599998e+01
+v_pmos_drop = 1.965690e-05
+v_reg15 = 1.505860e+01
+v_vbias = 7.529225e+00
+v_hpf_out = 7.529136e+00
+v_amp_in = 0.000000e+00
+v_mode_stat = 1.505860e+01
+--- 2. MODE A (MIC): END-TO-END FREQUENCY RESPONSE ---
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 174
+mic_hpf_elec_1k     =  4.469000e+01
+mic_hpf_elec_60hz   =  4.170549e+01
+mic_hpf_elec_25hz   =  2.891474e+01
+mic_hpf_elec_1k = 4.469000e+01
+mic_hpf_elec_60hz = 4.170549e+01
+mic_hpf_elec_25hz = 2.891474e+01
+mic_elec_atten_60hz = -2.98451e+00
+mic_elec_atten_25hz = -1.57753e+01
+mic_spk_gain_1k     =  6.162233e+01
+mic_spk_gain_60hz   =  6.315134e+01
+mic_spk_gain_25hz   =  5.014797e+01
+mic_spk_gain_1k = 6.162233e+01
+mic_spk_gain_60hz = 6.315134e+01
+mic_spk_gain_25hz = 5.014797e+01
+--- 3. MODE B (LINE): END-TO-END FREQUENCY RESPONSE ---
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 174
+line_hpf_elec_1k    =  -9.542815e+00
+line_hpf_elec_60hz  =  -1.249868e+01
+line_hpf_elec_25hz  =  -2.515960e+01
+line_hpf_elec_1k = -9.54281e+00
+line_hpf_elec_60hz = -1.24987e+01
+line_hpf_elec_25hz = -2.51596e+01
+line_elec_atten_60hz = -2.95587e+00
+line_elec_atten_25hz = -1.56168e+01
+line_spk_gain_1k    =  7.389519e+00
+line_spk_gain_60hz  =  8.947169e+00
+line_spk_gain_25hz  =  -3.926369e+00
+line_spk_gain_1k = 7.389519e+00
+line_spk_gain_60hz = 8.947169e+00
+line_spk_gain_25hz = -3.92637e+00
+--- 4. TRANSIENT VERIFICATION: 10W RMS RATED POWER ---
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+gnd_chassis                                  0
++36v                                        36
+vcc_36v                                     36
++15v                                   15.0586
+vreg_15v                               15.0586
+dc_in_raw                                   36
+dc_fuse_out                                 36
+pmos_gate                              24.0772
+x_u4.ref                               15.0586
+lm317_adj                              13.8086
+vbias_div                               7.5293
+vbias_7v5                              7.52923
+x_u3a.out_int                          7.52924
+x_u3a.int_node                         7.52924
+x_u3a.out_buf                          7.52924
+x_u3a.vmax                             13.2586
+x_u3a.vmin                                 1.8
+spare_out                              7.52915
+x_u3b.out_int                          7.52915
+x_u3b.int_node                         7.52915
+x_u3b.out_buf                          7.52915
+x_u3b.vmax                             13.2586
+x_u3b.vmin                                 1.8
+mic_hot_raw                                  0
+mic_cold_raw                                 0
+mic_hot_ac                             7.52922
+mic_cold_ac                            7.52915
+mic_pre1_noninv                        7.52922
+mic_pre1_inv                           7.52915
+mic_stg1_out                           7.52915
+x_u1a.out_int                          7.52915
+x_u1a.int_node                         7.52915
+x_u1a.out_buf                          7.52915
+x_u1a.vmax                             13.2586
+x_u1a.vmin                                 1.8
+mic_stg2_in                            7.52921
+mic_pre2_inv                           7.52914
+mic_gain_pot_cw                        7.52882
+mic_pre_out                            7.52222
+x_u1b.out_int                          7.52221
+x_u1b.int_node                         7.52221
+x_u1b.out_buf                          7.52221
+x_u1b.vmax                             13.2586
+x_u1b.vmin                                 1.8
+mic_vol_pot_in                               0
+mode_a_mic_sig                               0
+line_hot_raw                                 0
+line_cold_raw                                0
+line_hot_ac                            7.52922
+line_cold_ac                           7.52915
+line_rec_noninv                        7.52922
+line_rec_inv                           7.52915
+line_rec_out                           7.52915
+x_u2b.out_int                          7.52914
+x_u2b.int_node                         7.52914
+x_u2b.out_buf                          7.52914
+x_u2b.vmax                             13.2586
+x_u2b.vmin                                 1.8
+line_vol_pot_in                              0
+mode_b_line_sig                              0
+selected_audio                               0
+mode_status                        1.50586e-09
+hpf_mid_node                           7.52914
+hpf_out                                7.52914
+hpf_noninv                             7.52921
+x_u2a.out_int                          7.52914
+x_u2a.int_node                         7.52914
+x_u2a.out_buf                          7.52914
+x_u2a.vmax                             13.2586
+x_u2a.vmin                                 1.8
+amp_input_sig                                0
+amp_out_pos_cm                              18
+amp_out_neg_cm                              18
+amp_out_pos                                 18
+amp_out_neg                                 18
+l1_int                                      18
+spk_out_pos                                 18
+c24_int                                     18
+spk_int1                                    18
+spk_int2                                    18
+spk_diff                                     0
+b.x_u2a.b_vmin#branch              5.74119e-12
+b.x_u2a.b_vmax#branch             -5.73947e-12
+b.x_u2b.b_vmin#branch              5.74119e-12
+b.x_u2b.b_vmax#branch             -5.73946e-12
+b.x_u1b.b_vmin#branch              5.73408e-12
+b.x_u1b.b_vmax#branch             -5.74638e-12
+b.x_u1a.b_vmin#branch              5.74119e-12
+b.x_u1a.b_vmax#branch             -5.73946e-12
+b.x_u3b.b_vmin#branch              5.74119e-12
+b.x_u3b.b_vmax#branch             -5.73945e-12
+b.x_u3a.b_vmin#branch              5.74119e-12
+b.x_u3a.b_vmax#branch             -5.73938e-12
+b.x_u4.b_pass#branch               -0.00596142
+l_spk_ces#branch                             0
+l_spk_vc#branch                   -4.44089e-16
+l1_filt#branch                               0
+e_spk_diff#branch                            0
+e_tpa_neg#branch                             0
+e_tpa_pos#branch                             0
+e.x_u2a.e_buf#branch               2.54452e-10
+e.x_u2a.e_gain#branch                        0
+e.x_u2b.e_buf#branch               2.50143e-10
+e.x_u2b.e_gain#branch                        0
+e.x_u1b.e_buf#branch               2.63908e-07
+e.x_u1b.e_gain#branch                        0
+e.x_u1a.e_buf#branch               2.50059e-10
+e.x_u1a.e_gain#branch                        0
+e.x_u3b.e_buf#branch               2.49933e-10
+e.x_u3b.e_gain#branch                        0
+e.x_u3a.e_buf#branch              -2.64662e-07
+e.x_u3a.e_gain#branch                        0
+v_tpa_cm_neg#branch                          0
+v_tpa_cm_pos#branch                          0
+v_line_cold#branch                           0
+v_line_hot#branch                            0
+v_mic_cold#branch                            0
+v_mic_hot#branch                             0
+v.x_u4.vref#branch                           0
+v_j3#branch                       -0.000262972
+
+Using SPARSE 1.3 as Direct Linear Solver
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 520
+v_spk_diff_pk       =  4.111061e+00 at=  8.237776e-03
+v_spk_diff_pk = 4.111061e+00
+p_spk_rms = 1.056301e+00
+--- 5. RLC FILTER BYPASS COMPARISON (SW2) ---
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 41
+v_cnt_act_1k5       =  7.342480e+00
+v_cnt_act_2k3       =  9.028683e+00
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+No. of Data Rows : 41
+v_cnt_byp_1k5       =  1.195609e+01
+v_cnt_byp_2k3       =  1.195611e+01
+v_cnt_byp_1k5 = 1.195609e+01
+notch_depth_1k5 = 4.613610e+00
+notch_depth_2k3 = 2.927430e+00
+======================================================================
+ALL SYSTEM SIMULATION CHECKS COMPLETED SUCCESSFULLY WITH 0 ERRORS!
+======================================================================
+Note: Simulation executed from .control section 

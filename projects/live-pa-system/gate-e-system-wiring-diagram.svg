@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 750" width="1100" height="750">
+<defs>
+<style>
+  .sys-bg { fill: #0b0f19; }
+  .blk-bg { fill: #1a2238; stroke: #4cc9f0; stroke-width: 2; rx: 8; }
+  .blk-hdr { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #4cc9f0; }
+  .blk-desc { font-family: Arial, sans-serif; font-size: 10px; fill: #e0e1dd; }
+  .term-box { fill: #2b2d42; stroke: #8d99ae; stroke-width: 1.2; rx: 3; }
+  .term-txt { font-family: "Courier New", monospace; font-size: 9.5px; fill: #ffffff; }
+  .wire-hi-pwr { stroke: #e63946; stroke-width: 4; fill: none; stroke-linecap: round; }
+  .wire-hi-gnd { stroke: #000000; stroke-width: 4; fill: none; stroke-linecap: round; }
+  .wire-spk-pos { stroke: #f77f00; stroke-width: 3.5; fill: none; stroke-linecap: round; }
+  .wire-spk-neg { stroke: #0077b6; stroke-width: 3.5; fill: none; stroke-linecap: round; }
+  .wire-sig { stroke: #2a9d8f; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+  .wire-vbias { stroke: #7209b7; stroke-width: 2; fill: none; stroke-linecap: round; }
+</style>
+</defs>
+<rect width="1100" height="750" class="sys-bg"/>
+<text x="550.0" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">DIY ACTIVE STAGE MONITOR — GATE E COMPLETE SYSTEM WIRING</text>
+<text x="550.0" y="52" font-family="Arial, sans-serif" font-size="12" fill="#aaccbb" text-anchor="middle">Point-to-Point Cable Interconnect: External PSU, Board A, Board B, Board C, TPA3255 Amp &amp; Visaton BG 20</text>
+<rect x="40" y="80" width="180" height="140" class="blk-bg"/>
+<text x="55" y="105" class="blk-hdr">DC POWER INPUT</text>
+<text x="55" y="125" class="blk-desc">External 36V 5A Adapter</text>
+<text x="55" y="145" class="blk-desc">J3: 5.5x2.1mm DC Jack</text>
+<text x="55" y="165" class="blk-desc">F1: 5x20mm 3.15A Fuse</text>
+<text x="55" y="195" class="blk-desc" fill="#f77f00">18 AWG Heavy Wire</text>
+<rect x="280" y="80" width="220" height="200" class="blk-bg"/>
+<text x="295" y="105" class="blk-hdr">BOARD B (5 × 7 cm)</text>
+<text x="295" y="125" class="blk-desc">Power Conditioning</text>
+<text x="295" y="145" class="blk-desc">• IRF4905 Reverse Protection</text>
+<text x="295" y="165" class="blk-desc">• LM317HVT +15V Regulator</text>
+<text x="295" y="185" class="blk-desc">• 470uF Reservoir / 100uF Out</text>
+<text x="295" y="215" class="blk-desc" fill="#7209b7">Outputs: +15V, GND, +36V</text>
+<rect x="580" y="80" width="230" height="200" class="blk-bg"/>
+<text x="595" y="105" class="blk-hdr">TPA3255 AMPLIFIER</text>
+<text x="595" y="125" class="blk-desc">Wuzhi ZK-3002 PBTL Mono</text>
+<text x="595" y="145" class="blk-desc">• 36V DC Power Terminal</text>
+<text x="595" y="165" class="blk-desc">• 3-Pin Single-Ended Audio In</text>
+<text x="595" y="185" class="blk-desc">• Floating PBTL Speaker Out</text>
+<text x="595" y="215" class="blk-desc" fill="#ff4d6d">Half-Supply +18V DC Offset</text>
+<rect x="280" y="340" width="340" height="260" class="blk-bg"/>
+<text x="295" y="365" class="blk-hdr">BOARD A: ANALOG AUDIO (7 × 9 cm)</text>
+<text x="295" y="385" class="blk-desc">3x NE5532P High-Performance Audio Op-Amps</text>
+<text x="295" y="410" class="blk-desc">• U1: Mic Preamp (+20 to +54 dB Gain)</text>
+<text x="295" y="430" class="blk-desc">• U2A: Balanced LINE Diff Receiver (0 dB)</text>
+<text x="295" y="450" class="blk-desc">• SW1: Mode Switch (Vocal / Console)</text>
+<text x="295" y="470" class="blk-desc">• U2B: 60Hz 2nd-Order Sallen-Key HPF</text>
+<text x="295" y="490" class="blk-desc">• U3A: Virtual Ground Follower (+7.5V)</text>
+<text x="295" y="520" class="blk-desc" fill="#2a9d8f">Controls: RV1 (Gain), RV2 (MicVol), RV3 (LineVol)</text>
+<rect x="40" y="340" width="180" height="260" class="blk-bg"/>
+<text x="55" y="365" class="blk-hdr">PANEL INPUTS</text>
+<text x="55" y="395" class="blk-desc">J1: Neutrik NC3FD XLR-F</text>
+<text x="55" y="415" class="blk-desc">Pin 1: GND / Shield</text>
+<text x="55" y="430" class="blk-desc">Pin 2: HOT (+)</text>
+<text x="55" y="445" class="blk-desc">Pin 3: COLD (-)</text>
+<text x="55" y="480" class="blk-desc">J2: Neutrik NCJ6FI Combo</text>
+<text x="55" y="500" class="blk-desc">XLR / 6.35mm TRS</text>
+<text x="55" y="515" class="blk-desc">Tied 1/S: GND, 2/T: HOT</text>
+<text x="55" y="530" class="blk-desc">3/R: COLD (-)</text>
+<rect x="870" y="80" width="190" height="240" class="blk-bg"/>
+<text x="885" y="105" class="blk-hdr">BOARD C (5 × 7 cm)</text>
+<text x="885" y="125" class="blk-desc">Passive RLC Contour</text>
+<text x="885" y="150" class="blk-desc">• L1: 1.0 mH Air Choke</text>
+<text x="885" y="170" class="blk-desc">• R23: 8.2 Ω 10W Resistor</text>
+<text x="885" y="190" class="blk-desc">• C24: 4.7 uF MKP Cap</text>
+<text x="885" y="210" class="blk-desc">• SW2: Bypass Switch</text>
+<text x="885" y="240" class="blk-desc" fill="#f77f00">18 AWG Speaker Tracks</text>
+<rect x="870" y="380" width="190" height="150" class="blk-bg"/>
+<text x="885" y="405" class="blk-hdr">VISATON BG 20</text>
+<text x="885" y="425" class="blk-desc">8" Full-Range (8 Ω)</text>
+<text x="885" y="445" class="blk-desc">25 L Vented Stage Wedge</text>
+<text x="885" y="465" class="blk-desc">10 W RMS Operating Limit</text>
+<text x="885" y="495" class="blk-desc" fill="#e63946">Peak Current: 3.6 A</text>
+<path d="M 220 120 L 280 120" class="wire-hi-pwr"/>
+<path d="M 220 150 L 280 150" class="wire-hi-gnd"/>
+<path d="M 500 120 L 580 120" class="wire-hi-pwr"/>
+<path d="M 500 150 L 580 150" class="wire-hi-gnd"/>
+<path d="M 390 280 L 390 340" class="wire-hi-pwr" stroke-width="2.5"/>
+<path d="M 410 280 L 410 340" class="wire-hi-gnd" stroke-width="2.5"/>
+<path d="M 220 420 L 280 420" class="wire-sig"/>
+<path d="M 220 510 L 280 510" class="wire-sig"/>
+<path d="M 620 440 L 700 440 L 700 280" class="wire-sig"/>
+<path d="M 810 140 L 870 140" class="wire-spk-pos"/>
+<path d="M 810 170 L 870 170" class="wire-spk-neg"/>
+<path d="M 940 320 L 940 380" class="wire-spk-pos"/>
+<path d="M 980 320 L 980 380" class="wire-spk-neg"/>
+<rect x="40" y="640" width="1020" height="70" fill="#141b2d" stroke="#3a405a" rx="6"/>
+<text x="60" y="665" font-family="Arial" font-size="11" font-weight="bold" fill="#ffffff">WIRING COLOR CODE &amp; WIRE SPECIFICATIONS:</text>
+<line x1="60" y1="685" x2="90" y2="685" class="wire-hi-pwr"/>
+<text x="100" y="688" font-family="Arial" font-size="10" fill="#ffffff">+36V High-Current (18 AWG Red Silicone)</text>
+<line x1="330" y1="685" x2="360" y2="685" class="wire-hi-gnd"/>
+<text x="370" y="688" font-family="Arial" font-size="10" fill="#ffffff">DC Power Ground Return (18 AWG Black Silicone)</text>
+<line x1="650" y1="685" x2="680" y2="685" class="wire-spk-pos"/>
+<text x="690" y="688" font-family="Arial" font-size="10" fill="#ffffff">PBTL Speaker (+) (18 AWG Orange/Red - FLOATING)</text>
+<line x1="60" y1="702" x2="90" y2="702" class="wire-sig"/>
+<text x="100" y="705" font-family="Arial" font-size="10" fill="#ffffff">Analog Audio Signals (Shielded Twisted Pair / 24 AWG)</text>
+<line x1="330" y1="702" x2="360" y2="702" class="wire-spk-neg"/>
+<text x="370" y="705" font-family="Arial" font-size="10" fill="#ffffff">PBTL Speaker (-) (18 AWG Blue - FLOATING)</text>
+<line x1="650" y1="702" x2="680" y2="702" class="wire-vbias"/>
+<text x="690" y="705" font-family="Arial" font-size="10" fill="#ffffff">+15V &amp; Virtual Ground (24 AWG Hookup Wire)</text>
+</svg>

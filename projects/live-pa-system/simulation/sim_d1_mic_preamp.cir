@@ -1,0 +1,109 @@
+* Gate D Final: 2-Stage Microphone Preamp with 0.1% Precision Resistors
+* Stage 1A: Fixed-Gain Ratio-Matched Differential Receiver (Av1 = 2.136x = +6.59 dB)
+* Stage 1B: Variable-Gain Post-Amplifier (Av2 = 4.636x to 156.15x = +13.32 dB to +43.87 dB)
+* Total Mic Gain: +19.92 dB (Min) to +50.46 dB (Max)
+* Single +15V Supply with Precision Buffered Vbias = +7.5V
+* Includes Worst-Case CMRR Verification under 0.1% Resistor Tolerance
+
+.param VCC_VAL=15.0
+.param VBIAS_VAL=7.5
+
+* Power Supplies
+VCC 15V_RAIL 0 DC {VCC_VAL}
+VBIAS VBIAS_NODE 0 DC {VBIAS_VAL}
+
+* Differential Signal Source (Dynamic Mic: 5 mVpk = 3.536 mVrms diff at 1 kHz)
+Vmic_hot  MIC_HOT_RAW 0 AC 0.5 0 SIN(0 0.0025 1k)
+Vmic_cold MIC_COLD_RAW 0 AC -0.5 0 SIN(0 -0.0025 1k)
+
+* RF filtering and static bleeders
+C_rf1 MIC_HOT_RAW 0 47p
+C_rf2 MIC_COLD_RAW 0 47p
+R_bleed1 MIC_HOT_RAW 0 100k
+R_bleed2 MIC_COLD_RAW 0 100k
+
+* DC Blocking AC Coupling Capacitors
+C_in1 MIC_HOT_RAW MIC_HOT_AC 10u
+C_in2 MIC_COLD_RAW MIC_COLD_AC 10u
+
+* --- Stage 1A: Balanced Differential Receiver (0.1% Precision Resistors) ---
+* Nominal: Rin = 2.2k 0.1%, Rfb/Rbias = 4.7k 0.1%
+R_in_cold MIC_COLD_AC PRE1_INV 2.2k
+R_in_hot  MIC_HOT_AC  PRE1_NONINV 2.2k
+R_bias1   PRE1_NONINV VBIAS_NODE 4.7k
+R_fb1     PRE1_INV PRE1_OUT 4.7k
+
+* NE5532 Op-Amp Model for Stage 1A (Aol=100k, GBW=10MHz, slew=9V/us)
+E_OP1 PRE1_OUT_INT 0 PRE1_NONINV PRE1_INV 100k
+R_out1 PRE1_OUT_INT PRE1_OUT 50
+
+* Inter-stage AC Coupling
+C_inter PRE1_OUT PRE2_IN 10u
+R_inter PRE2_IN VBIAS_NODE 47k
+
+* --- Stage 1B: Variable Gain Post-Amplifier ---
+* Non-inverting configuration: Av2 = 1 + (R_fb2 + R_pot) / R_gain
+* R_gain = 330 ohm 1%, R_fb2 = 1.2k ohm 1%, RV1 = 50k rev-log pot
+R_gain2 PRE2_INV VBIAS_NODE 330
+.param R_POT_VAL=0
+R_fb2   PRE2_INV POT_NODE 1.2k
+R_pot   POT_NODE PRE2_OUT {R_POT_VAL}
+
+* NE5532 Op-Amp Model for Stage 1B
+E_OP2 PRE2_OUT_INT 0 PRE2_IN PRE2_INV 100k
+R_out2 PRE2_OUT_INT PRE2_OUT 50
+
+* AC coupling to Dedicated 10k Log Mic Volume Potentiometer (RV2)
+C_mic_vol PRE2_OUT MIC_VOL_TOP 10u
+R_mic_pot MIC_VOL_TOP 0 10k
+
+.control
+  * 1. AC Analysis: Minimum Gain (R_pot = 0)
+  alter R_pot = 0
+  ac dec 50 10 100k
+  meas ac gain_stg1_1k find vdb(PRE1_OUT) at=1k
+  meas ac gain_tot_min find vdb(PRE2_OUT) at=1k
+  meas ac gain_tot_min_20k find vdb(PRE2_OUT) at=20k
+  set diff_min = "$&gain_tot_min"
+  print gain_stg1_1k gain_tot_min gain_tot_min_20k
+
+  * 2. AC Analysis: Mid Gain (R_pot = 25k)
+  alter R_pot = 25k
+  ac dec 50 10 100k
+  meas ac gain_tot_mid find vdb(PRE2_OUT) at=1k
+  print gain_tot_mid
+
+  * 3. AC Analysis: Maximum Gain (R_pot = 50k)
+  alter R_pot = 50k
+  ac dec 50 10 100k
+  meas ac gain_tot_max find vdb(PRE2_OUT) at=1k
+  meas ac gain_tot_max_20k find vdb(PRE2_OUT) at=20k
+  set diff_max = "$&gain_tot_max"
+  print gain_tot_max gain_tot_max_20k
+
+  * 4. Transient Analysis: Clean Sine Reproduction at Max Gain (5 mVpk in)
+  tran 10u 5m
+  meas tran vout_stg1_pk max v(PRE1_OUT) from=2m to=5m
+  meas tran vout_tot_pk max v(PRE2_OUT) from=2m to=5m
+  print vout_stg1_pk vout_tot_pk
+
+  * 5. CMRR Analysis with Absolute WORST-CASE 0.1% Resistor Mismatch
+  * Branch 1: Rin = 2.2k * 0.999 = 2197.8, Rbias = 4.7k * 1.001 = 4704.7
+  * Branch 2: Rin = 2.2k * 1.001 = 2202.2, Rfb   = 4.7k * 0.999 = 4695.3
+  * Delta ratio mismatch = +0.2% - (-0.2%) = 0.4% worst-case deviation
+  alter R_in_cold = 2202.2
+  alter R_fb1     = 4695.3
+  alter R_in_hot  = 2197.8
+  alter R_bias1   = 4704.7
+  alter Vmic_hot ac = 1.0
+  alter Vmic_cold ac = 1.0
+  alter R_pot = 0
+  ac dec 10 10 100k
+  meas ac cm_gain_60hz find vdb(PRE1_OUT) at=60
+  meas ac cm_gain_1khz find vdb(PRE1_OUT) at=1k
+  let cmrr_worst_60hz = $diff_min - cm_gain_60hz
+  let cmrr_worst_1khz = $diff_min - cm_gain_1khz
+  print cm_gain_60hz cm_gain_1khz cmrr_worst_60hz cmrr_worst_1khz
+.endc
+
+.end

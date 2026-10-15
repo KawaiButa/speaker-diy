@@ -1,0 +1,67 @@
+* Gate D1 Simulation: Balanced LINE Receiver with -6dB Input Attenuation
+* Operating from single +15V DC supply with Vbias = +7.5V
+
+* --- Power Supply & Bias ---
+VCC 15V_RAIL 0 DC 15.0
+VBIAS VBIAS_NODE 0 DC 7.5
+
+* --- Input Sources ---
+* Test 1: Differential mode (+4 dBu nominal = 1.228 Vrms = 1.737 Vpk diff)
+* Pin 2 (HOT) = +0.8685 Vpk, Pin 3 (COLD) = -0.8685 Vpk
+Vline_hot LINE_HOT_RAW 0 AC 0.5 0 SIN(0 0.8685 1k)
+Vline_cold LINE_COLD_RAW 0 AC -0.5 0 SIN(0 -0.8685 1k)
+
+* DC blocking and RF filtering
+C_in1 LINE_HOT_RAW LINE_HOT 1u
+C_in2 LINE_COLD_RAW LINE_COLD 1u
+R_bleed1 LINE_HOT 0 100k
+R_bleed2 LINE_COLD 0 100k
+C_rf1 LINE_HOT 0 47p
+C_rf2 LINE_COLD 0 47p
+
+* Differential Attenuator Stage (Differential Gain Ad = 10k/20k = 0.5 = -6.02 dB)
+* R_in = 20k 1% metal film, R_fb = 10k 1% metal film
+R_in_cold LINE_COLD LINE_INV 20k
+R_in_hot  LINE_HOT  LINE_NONINV 20k
+R_bias    LINE_NONINV VBIAS_NODE 10k
+R_fb      LINE_INV LINE_OUT 10k
+
+* Op-Amp Model (NE5532 representation, open-loop gain = 100k, ro = 50)
+E_OP1 LINE_OUT_INT 0 LINE_NONINV LINE_INV 100k
+R_out1 LINE_OUT_INT LINE_OUT 50
+
+* AC coupling from opamp output to 10k volume potentiometer
+C_out_dc LINE_OUT POT_TOP 10u
+* 10k pot: top to ground
+R_pot_gnd POT_TOP 0 10k
+* At 100% position, wiper = POT_TOP
+* TPA3255 input impedance load (typical 20k)
+R_load POT_TOP 0 20k
+
+.control
+  * 1. AC Analysis: 10 Hz to 100 kHz (Differential Gain)
+  ac dec 50 10 100k
+  meas ac diff_gain_1k find vdb(POT_TOP) at=1k
+  meas ac diff_gain_20hz find vdb(POT_TOP) at=20
+  meas ac diff_gain_20k find vdb(POT_TOP) at=20k
+  set diff_1k = "$&diff_gain_1k"
+  print diff_gain_1k diff_gain_20hz diff_gain_20k
+
+  * 2. Transient Analysis: +4 dBu nominal input (1.737 Vpk diff -> 0.868 Vpk out)
+  tran 10u 5m
+  meas tran vout_pk max v(POT_TOP) from=2m to=5m
+  print vout_pk
+
+  * 3. CMRR Analysis: apply common-mode 1V AC to both HOT and COLD
+  alter Vline_hot ac = 1.0
+  alter Vline_cold ac = 1.0
+  ac dec 10 10 100k
+  meas ac cm_gain_1k find vdb(POT_TOP) at=1k
+  meas ac cm_gain_60hz find vdb(POT_TOP) at=60
+  let cmrr_1k = $diff_1k - cm_gain_1k
+  let cmrr_60hz = $diff_1k - cm_gain_60hz
+  print cm_gain_1k cm_gain_60hz cmrr_1k cmrr_60hz
+.endc
+
+.end
+

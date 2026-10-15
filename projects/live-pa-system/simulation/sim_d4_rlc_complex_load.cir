@@ -1,0 +1,76 @@
+* Gate D4 Simulation: Visaton BG 20 Passive RLC Contour Filter
+* Parallel RLC network in series with complex voice-coil load (Rdc + Le + motional resonance)
+
+* --- 1. Signal Source (TPA3255 PBTL output) ---
+* 1.0V AC source
+Vin AMP_OUT 0 AC 1.0 0
+
+* --- 2. Parallel RLC Contour Filter ---
+* Components:
+* L = 1.0 mH with 0.35 ohm DCR
+* C = 4.7 uF film capacitor with 0.05 ohm ESR
+* R = 8.2 ohm 10W non-inductive resistor
+* SPST Bypass Switch modeled as small resistor (0.001 ohm when closed, 10Meg when open)
+
+* Inductor with internal DCR
+L_filt AMP_OUT L_INT 1.0m
+R_dcr  L_INT DRV_POS 0.35
+
+* Capacitor with ESR
+C_filt AMP_OUT C_INT 4.7u
+R_esr  C_INT DRV_POS 0.05
+
+* Parallel damping resistor
+R_filt AMP_OUT DRV_POS 8.2
+
+* Bypass switch path (Open in filter mode: 10Meg; Closed in flat mode: 1m)
+R_sw_bypass AMP_OUT DRV_POS 10Meg
+
+* --- 3. Visaton BG 20 Driver Complex Impedance Model ---
+* Thiele-Small Parameters:
+* Re = 6.2 ohms
+* Le = 0.8 mH (voice-coil inductance)
+* Motional impedance around fs = 38 Hz:
+* Res = 28.6 ohms, Cmes = 612 uF, Lces = 28.7 mH (models 38 Hz impedance peak)
+R_e DRV_POS DRV_INT1 6.2
+L_e DRV_INT1 DRV_INT2 0.8m
+
+* Motional resonance tank (parallel Res, Cmes, Lces)
+R_es DRV_INT2 0 28.6
+C_mes DRV_INT2 0 612u
+L_ces DRV_INT2 0 28.7m
+
+.control
+  * 1. AC Analysis with RLC Filter ACTIVE (Bypass switch OPEN)
+  ac dec 100 20 20k
+  
+  meas ac v_100hz  find vdb(DRV_POS) at=100
+  meas ac v_500hz  find vdb(DRV_POS) at=500
+  meas ac v_1khz   find vdb(DRV_POS) at=1k
+  meas ac v_1k5hz  find vdb(DRV_POS) at=1.5k
+  meas ac v_2k32hz find vdb(DRV_POS) at=2.32k
+  meas ac v_4khz   find vdb(DRV_POS) at=4k
+  meas ac v_10khz  find vdb(DRV_POS) at=10k
+
+  meas ac z_100hz  find vp(DRV_POS) at=100
+  
+  * Calculate input impedance seen by amplifier
+  let z_in = v(AMP_OUT) / -i(Vin)
+  let z_mag = abs(z_in)
+  meas ac z_min min z_mag from=20 to=20k
+  meas ac z_at_1k find z_mag at=1k
+  meas ac z_at_2k32 find z_mag at=2.32k
+
+  print v_100hz v_500hz v_1khz v_1k5hz v_2k32hz v_4khz v_10khz
+  print z_min z_at_1k z_at_2k32
+
+  * 2. AC Analysis with RLC BYPASSED (Bypass switch CLOSED = 1m)
+  alter R_sw_bypass = 1m
+  ac dec 100 20 20k
+  meas ac v_byp_1khz find vdb(DRV_POS) at=1k
+  meas ac v_byp_2k32 find vdb(DRV_POS) at=2.32k
+  meas ac v_byp_4khz find vdb(DRV_POS) at=4k
+  print v_byp_1khz v_byp_2k32 v_byp_4khz
+.endc
+
+.end
